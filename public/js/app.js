@@ -12840,6 +12840,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -13827,9 +13831,7 @@ var render = function() {
                 ]
               )
             })
-          : _vm._e(),
-        _vm._v(" "),
-        [_vm._m(3)]
+          : [_vm._m(3)]
       ],
       2
     )
@@ -13855,17 +13857,18 @@ var staticRenderFns = [
           }
         },
         [
-          _c("p", [_vm._v("Name")]),
-          _vm._v(" "),
-          _c("span", {
-            staticClass: "fa fa-chevron-down",
-            attrs: { "data-sort": "asc" }
-          }),
-          _vm._v(" "),
-          _c("span", {
-            staticClass: "fa fa-chevron-down",
-            attrs: { "data-sort": "desc" }
-          })
+          _c("p", [
+            _vm._v("\n                Name\n                "),
+            _c("span", {
+              staticClass: "fa fa-chevron-down",
+              attrs: { "data-sort": "asc" }
+            }),
+            _vm._v(" "),
+            _c("span", {
+              staticClass: "fa fa-chevron-down",
+              attrs: { "data-sort": "desc" }
+            })
+          ])
         ]
       ),
       _vm._v(" "),
@@ -13882,17 +13885,18 @@ var staticRenderFns = [
           }
         },
         [
-          _c("p", [_vm._v("Type")]),
-          _vm._v(" "),
-          _c("span", {
-            staticClass: "fa fa-chevron-down",
-            attrs: { "data-sort": "asc" }
-          }),
-          _vm._v(" "),
-          _c("span", {
-            staticClass: "fa fa-chevron-down",
-            attrs: { "data-sort": "desc" }
-          })
+          _c("p", [
+            _vm._v("\n                Type\n                "),
+            _c("span", {
+              staticClass: "fa fa-chevron-down",
+              attrs: { "data-sort": "asc" }
+            }),
+            _vm._v(" "),
+            _c("span", {
+              staticClass: "fa fa-chevron-down",
+              attrs: { "data-sort": "desc" }
+            })
+          ])
         ]
       ),
       _vm._v(" "),

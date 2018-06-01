@@ -8,18 +8,22 @@
                  sort-active
                  data-sort-type="name"
                  data-sort-by="asc">
-                <p>Name</p>
-                <span class="fa fa-chevron-down" data-sort="asc"></span>
-                <span class="fa fa-chevron-down" data-sort="desc"></span>
+                <p>
+                    Name
+                    <span class="fa fa-chevron-down" data-sort="asc"></span>
+                    <span class="fa fa-chevron-down" data-sort="desc"></span>
+                </p>
             </div>
             <div class="sym-table-column sym-table-column-30 sym-table-column-l"
                  data-column="type"
                  sort
                  data-sort-type="type"
                  data-sort-by="asc">
-                <p>Type</p>
-                <span class="fa fa-chevron-down" data-sort="asc"></span>
-                <span class="fa fa-chevron-down" data-sort="desc"></span>
+                <p>
+                    Type
+                    <span class="fa fa-chevron-down" data-sort="asc"></span>
+                    <span class="fa fa-chevron-down" data-sort="desc"></span>
+                </p>
             </div>
             <div class="sym-table-column sym-table-column-30"
                  data-column="roles">
@@ -52,7 +56,7 @@
 
                 </div>
             </template>
-            <template>
+            <template v-else>
                 <div class="sym-table-item sym-table-item-selectable sym-table-item-fake">
 
                     <div class="sym-table-column sym-table-column-40 sym-table-column-l" data-column="name">
