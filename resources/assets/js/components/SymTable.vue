@@ -29,7 +29,7 @@
 
         <div class="sym-table-items">
             <template v-if="users">
-                <div v-for="(user, i) in users" class="sym-table-item sym-table-item-selectable">
+                <div v-for="(user, i) in users" class="sym-table-item sym-table-item-selectable" :key="i">
                     <div class="sym-table-column sym-table-column-40 sym-table-column-l" data-column="name">
                         <p class="sym-table-item-avatar sym-user-avatar">
                             <img :src="`http://i.pravatar.cc/150?img=${user.id}`">
@@ -52,8 +52,24 @@
 
                 </div>
             </template>
-            <template v-else>
+            <template>
+                <div class="sym-table-item sym-table-item-selectable sym-table-item-fake">
 
+                    <div class="sym-table-column sym-table-column-40 sym-table-column-l" data-column="name">
+                        <p class="sym-table-item-avatar sym-user-avatar"></p>
+                        <p class="sym-table-item-name sym-user-name"></p>
+                        <p class="sym-table-item-email sym-user-email"></p>
+                    </div>
+
+                    <div class="sym-table-column sym-table-column-30 sym-table-column-l" data-column="type">
+                        <p class="sym-user-type-"><span></span></p>
+                    </div>
+
+                    <div class="sym-table-column sym-table-column-30" data-column="roles">
+                        <p></p>
+                    </div>
+
+                </div>
             </template>
         </div>
 
@@ -73,7 +89,9 @@
         mounted() {
             axios.get('/data')
                 .then(res => {
-                    this.users = res.data.users
+                    setTimeout(() => {
+                        this.users = res.data.users
+                    }, 2000)
                 })
         }
     }
@@ -410,7 +428,7 @@
 
     /* fake */
     .sym-table-item-fake {
-        display: none;
+        // display: none;
     }
 
     .sym-table-empty .sym-table-item-fake {
