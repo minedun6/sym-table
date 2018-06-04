@@ -1,42 +1,53 @@
 <template>
     <div class="sym-table">
+        <div class="flex justify-end mb-2">
+            <div class="relative my-2">
+                <input type="search" class="bg-purple-white shadow rounded border-0 p-2 pl-8"
+                       placeholder="Search...">
+                <div class="absolute pin-l pin-t mt-2 ml-2 text-purple-lighter">
+                    <svg version="1.1" class="h-4 text-dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 52.966 52.966" style="enable-background:new 0 0 52.966 52.966;" xml:space="preserve">
+                            <path d="M51.704,51.273L36.845,35.82c3.79-3.801,6.138-9.041,6.138-14.82c0-11.58-9.42-21-21-21s-21,9.42-21,21s9.42,21,21,21
+                            c5.083,0,9.748-1.817,13.384-4.832l14.895,15.491c0.196,0.205,0.458,0.307,0.721,0.307c0.25,0,0.499-0.093,0.693-0.279
+                            C52.074,52.304,52.086,51.671,51.704,51.273z M21.983,40c-10.477,0-19-8.523-19-19s8.523-19,19-19s19,8.523,19,19
+                            S32.459,40,21.983,40z"/>
+                     </svg>
 
+                </div>
+            </div>
+        </div>
         <div class="sym-table-header">
-            <div class="sym-table-column sym-table-column-40 sym-table-column-l"
-                 data-column="name"
-                 sort
-                 sort-active
-                 data-sort-type="name"
-                 data-sort-by="asc">
-                <p>
-                    Name
-                    <span class="fa fa-chevron-down" data-sort="asc"></span>
-                    <span class="fa fa-chevron-down" data-sort="desc"></span>
+            <div v-for="(column, i) in columns"
+                 class="sym-table-column cursor-pointer"
+                 :class="[ 'sym-table-column-' + column.width, {'sym-table-column-l' : i !== columns.length - 1}]"
+                 @click.prevent="toggleOrder(column)"
+            >
+                <p v-if="column.sortable" class="flex">
+                    <span class="mr-2">
+                        {{ column.pretty }}
+                    </span>
+                    <span class="flex flex-col">
+                        <span class="fa fa-xs fa-chevron-up"
+                              :class="[column.slug == sortColumn && sortOrder == 'desc' ? 'opacity-100' : 'opacity-50']"></span>
+                        <span class="fa fa-xs fa-chevron-down"
+                              :class="[column.slug == sortColumn && sortOrder == 'asc' ? 'opacity-100' : 'opacity-50']"></span>
+                    </span>
                 </p>
-            </div>
-            <div class="sym-table-column sym-table-column-30 sym-table-column-l"
-                 data-column="type"
-                 sort
-                 data-sort-type="type"
-                 data-sort-by="asc">
-                <p>
-                    Type
-                    <span class="fa fa-chevron-down" data-sort="asc"></span>
-                    <span class="fa fa-chevron-down" data-sort="desc"></span>
+                <p v-else>
+                    {{ column.pretty }}
                 </p>
-            </div>
-            <div class="sym-table-column sym-table-column-30"
-                 data-column="roles">
-                <p>Roles</p>
             </div>
         </div>
 
         <div class="sym-table-items">
             <template v-if="users">
-                <div v-for="(user, i) in users" class="sym-table-item sym-table-item-selectable" :key="i">
+                <div v-for="(user, i) in sortedUsers" class="sym-table-item sym-table-item-selectable" :key="i">
                     <div class="sym-table-column sym-table-column-40 sym-table-column-l" data-column="name">
                         <p class="sym-table-item-avatar sym-user-avatar">
-                            <img :src="`http://i.pravatar.cc/150?img=${user.id}`">
+                            <img :src="user.avatar" v-if="user.avatar"/>
+                            <span v-else>
+                                {{ user.initials }}
+                            </span>
                         </p>
                         <p class="sym-table-item-name sym-user-name">
                             {{ user.name }}
@@ -47,33 +58,26 @@
                     </div>
 
                     <div class="sym-table-column sym-table-column-30 sym-table-column-l" data-column="type">
-                        <p class="sym-user-type-0"><span></span>Recipient</p>
+                        <p class="sym-user-type-0">
+                            <span>{{ userType(user) }}</span>
+                        </p>
                     </div>
 
                     <div class="sym-table-column sym-table-column-30" data-column="roles">
-                        <p>XXXX</p>
+                        <p>
+                            <span v-if="user.roles.length == 0">
+                                -
+                            </span>
+                            <span class="block" v-for="role in user.roles" v-else>
+                                {{ role.name }}
+                            </span>
+                        </p>
                     </div>
 
                 </div>
             </template>
             <template v-else>
-                <div class="sym-table-item sym-table-item-selectable sym-table-item-fake">
-
-                    <div class="sym-table-column sym-table-column-40 sym-table-column-l" data-column="name">
-                        <p class="sym-table-item-avatar sym-user-avatar"></p>
-                        <p class="sym-table-item-name sym-user-name"></p>
-                        <p class="sym-table-item-email sym-user-email"></p>
-                    </div>
-
-                    <div class="sym-table-column sym-table-column-30 sym-table-column-l" data-column="type">
-                        <p class="sym-user-type-"><span></span></p>
-                    </div>
-
-                    <div class="sym-table-column sym-table-column-30" data-column="roles">
-                        <p></p>
-                    </div>
-
-                </div>
+                <fake-item-placeholder v-for="i in 5" :key="i"></fake-item-placeholder>
             </template>
         </div>
 
@@ -82,12 +86,54 @@
 
 <script>
     import axios from 'axios'
+    import _ from 'lodash'
+    import FakeItemPlaceholder from './FakeItemPlaceHolder'
 
     export default {
+        components: {
+            FakeItemPlaceholder
+        },
         data() {
             return {
                 roles: [],
-                users: null
+                users: null,
+                columns: [
+                    {'width': 40, 'pretty': 'Name', 'slug': 'name', 'sortable': true, searchable: true},
+                    {'width': 30, 'pretty': 'Type', 'slug': 'type', 'sortable': true, searchable: true},
+                    {'width': 30, 'pretty': 'Roles', 'slug': 'roles', 'sortable': false, searchable: false}
+                ],
+                sortColumn: 'name',
+                sortOrder: 'asc'
+            }
+        },
+        computed: {
+            // to initially load the users sorted
+            sortedUsers() {
+                return _.orderBy(this.users, [this.sortColumn], [this.sortOrder])
+            },
+            userType() {
+                return (user) => {
+                    if (user.type == 0) {
+                        return 'Recipient'
+                    } else if (user.type == 1) {
+                        return 'BO User'
+                    } else if (user.type == 2) {
+                        return 'BO User / Recipient'
+                    }
+                }
+            }
+        },
+        methods: {
+            toggleOrder(column) {
+                if (!column.sortable) {
+                    return;
+                }
+                this.sortColumn = column.slug
+                if (this.sortOrder == 'asc') {
+                    this.sortOrder = 'desc'
+                } else {
+                    this.sortOrder = 'asc'
+                }
             }
         },
         mounted() {
@@ -95,6 +141,7 @@
                 .then(res => {
                     setTimeout(() => {
                         this.users = res.data.users
+                        this.roles = res.data.roles
                     }, 2000)
                 })
         }
@@ -275,10 +322,10 @@
     .sym-table-column[sort] p span[data-sort] {
         position: relative;
         display: inline-block;
-        font-size: 10px;
+        font-size: 12px;
         opacity: .4;
         top: 5px;
-        left: -3px;
+        left: -7.5px;
     }
 
     .sym-table-column[sort] p span[data-sort="asc"] {
@@ -430,79 +477,6 @@
         text-align: left !important;
     }
 
-    /* fake */
-    .sym-table-item-fake {
-        // display: none;
-    }
-
-    .sym-table-empty .sym-table-item-fake {
-        display: block;
-    }
-
-    .sym-table-item-fake.sym-table-item-selected {
-        /*display: block;*/
-    }
-
-    .sym-table-item-fake .sym-table-column > p {
-        display: block;
-        height: 10px;
-        width: 20%;
-        background: #f1f1f4;
-        border-radius: 4px;
-        margin: 30px auto !important;
-    }
-
-    .sym-table-item-fake .sym-table-column-l > p {
-        margin: 30px 10px !important;
-    }
-
-    .sym-table-item-fake .sym-table-column-r > p {
-        margin: 30px 10px !important;
-        float: right;
-    }
-
-    .sym-table-item-fake .sym-table-column > p.sym-table-item-avatar {
-        position: relative;
-        float: left;
-        margin: 10px 10px !important;
-        overflow: hidden;
-        width: 50px;
-        height: 50px;
-        border-radius: 25px;
-    }
-
-    .sym-table-item-fake .sym-table-column > p.sym-table-item-avatar::before {
-        content: '';
-        position: absolute;
-        top: 11px;
-        left: 15px;
-        width: 20px;
-        height: 20px;
-        border-radius: 10px;
-        background: #fff;
-    }
-
-    .sym-table-item-fake .sym-table-column > p.sym-table-item-avatar::after {
-        content: '';
-        position: absolute;
-        top: 27px;
-        left: 8px;
-        width: 35px;
-        height: 40px;
-        border-radius: 18px;
-        background: #fff;
-    }
-
-    .sym-table-item-fake .sym-table-column > p.sym-table-item-name {
-        width: 100px;
-        margin: 20px 0px 0px 60px !important;
-    }
-
-    .sym-table-item-fake .sym-table-column > p.sym-table-item-email {
-        width: 160px;
-        margin: 10px 0px 0px 60px !important;
-    }
-
     /* details */
     .sym-table-item-details {
         overflow: hidden;
@@ -526,4 +500,21 @@
         padding: 15px;
         height: 100%;
     }
+
+    /* user roles */
+    .sym-table-item:not(.sym-table-item-fake) .sym-table-column[data-column="roles"] {
+        display: table;
+        height: 100%;
+    }
+
+    .sym-table-item:not(.sym-table-item-fake) .sym-table-column[data-column="roles"] p {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .sym-table-item:not(.sym-table-item-fake) .sym-table-column[data-column="roles"] p > span {
+        display: block;
+        font-family: "Open Sans";
+    }
+
 </style>
