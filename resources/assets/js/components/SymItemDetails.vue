@@ -7,7 +7,7 @@
 
                 <div class="sym-form-group sym-form-group-user" data-form="user-basic">
 
-                    <sym-input label="First Name" :isRequired="true" v-model="form.first_name" />
+                    <sym-input-text label="First Name" :isRequired="true" v-model="form.first_name" />
                     
                     <div class="sym-input-container">
                         <input class="sym-input" type="text" data-input="last_name">
@@ -951,7 +951,7 @@
 </template>
 
 <script>
-    import SymInput from './SymInput'
+    import SymInputText from './SymInputText'
 
     export default {
         props: ['selectedItem'],
@@ -963,7 +963,7 @@
             }
         },
         components: {
-            SymInput
+            SymInputText
         }
     }
 </script>
