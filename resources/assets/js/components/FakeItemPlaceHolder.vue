@@ -1,17 +1,17 @@
 <template>
-    <div class="sym-table-item sym-table-item-selectable sym-table-item-fake">
+    <div class="sym-table-item sym-table-item-fake flex">
 
-        <div class="sym-table-column sym-table-column-40 sym-table-column-l">
+        <div class="sym-table-column flex-1 sym-table-column-l">
             <p class="sym-table-item-avatar sym-user-avatar"></p>
             <p class="sym-table-item-name sym-user-name"></p>
             <p class="sym-table-item-email sym-user-email"></p>
         </div>
 
-        <div class="sym-table-column sym-table-column-30 sym-table-column-l">
+        <div class="sym-table-column flex-1 sym-table-column-l">
             <p></p>
         </div>
 
-        <div class="sym-table-column sym-table-column-30">
+        <div class="sym-table-column flex-1">
             <p></p>
         </div>
     </div>

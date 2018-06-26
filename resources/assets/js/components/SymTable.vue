@@ -16,10 +16,10 @@
                 </div>
             </div>
         </div>
-        <div class="sym-table-header">
+        <div class="sym-table-header flex">
             <div v-for="(column, i) in columns"
-                 class="sym-table-column cursor-pointer"
-                 :class="[ 'sym-table-column-' + column.width, {'sym-table-column-l' : i !== columns.length - 1}]"
+                 class="sym-table-column cursor-pointer flex-1"
+                 :class="[ {'sym-table-column-l' : i !== columns.length - 1}]"
                  @click.prevent="toggleOrder(column)"
             >
                 <p v-if="column.sortable" class="flex">
@@ -41,9 +41,9 @@
 
         <div class="sym-table-items">
             <template v-if="users">
-                <div v-for="(user, i) in sortedUsers" class="sym-table-item sym-table-item-selectable" :class="{ 'sym-table-item-selected' : isSelected(user) }" :key="i" @click="toggleDetails(user)">
+                <div v-for="(user, i) in sortedUsers" class="sym-table-item sym-table-item-selectable flex" :class="{ 'sym-table-item-selected' : isSelected(user) }" :key="i" @click="toggleDetails(user)">
 
-                    <div class="sym-table-column sym-table-column-40 sym-table-column-l" data-column="name">
+                    <div class="sym-table-column flex-1 sym-table-column-l" data-column="name">
                         <p class="sym-table-item-avatar sym-user-avatar">
                             <img :src="user.avatar" v-if="user.avatar"/>
                             <span v-else>
@@ -58,14 +58,14 @@
                         </p>
                     </div>
 
-                    <div class="sym-table-column sym-table-column-30 sym-table-column-l" data-column="type">
+                    <div class="sym-table-column flex-1 sym-table-column-l" data-column="type">
                         <p :class="'sym-user-type-' + user.type">
                             <span></span>
                             {{ userType(user) }}
                         </p>
                     </div>
 
-                    <div class="sym-table-column sym-table-column-30" data-column="roles">
+                    <div class="sym-table-column flex-1" data-column="roles">
                         <p>
                             <span v-if="user.roles.length === 0">
                                 -
@@ -160,7 +160,7 @@
                     setTimeout(() => {
                         this.users = res.data.users
                         this.roles = res.data.roles
-                    }, 2000)
+                    }, 6000)
                 })
         }
     }

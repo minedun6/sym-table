@@ -12930,7 +12930,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             setTimeout(function () {
                 _this2.users = res.data.users;
                 _this2.roles = res.data.roles;
-            }, 2000);
+            }, 6000);
         });
     }
 });
@@ -31100,17 +31100,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      {
-        staticClass:
-          "sym-table-item sym-table-item-selectable sym-table-item-fake"
-      },
+      { staticClass: "sym-table-item sym-table-item-fake flex" },
       [
         _c(
           "div",
-          {
-            staticClass:
-              "sym-table-column sym-table-column-40 sym-table-column-l"
-          },
+          { staticClass: "sym-table-column flex-1 sym-table-column-l" },
           [
             _c("p", { staticClass: "sym-table-item-avatar sym-user-avatar" }),
             _vm._v(" "),
@@ -31122,16 +31116,11 @@ var staticRenderFns = [
         _vm._v(" "),
         _c(
           "div",
-          {
-            staticClass:
-              "sym-table-column sym-table-column-30 sym-table-column-l"
-          },
+          { staticClass: "sym-table-column flex-1 sym-table-column-l" },
           [_c("p")]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "sym-table-column sym-table-column-30" }, [
-          _c("p")
-        ])
+        _c("div", { staticClass: "sym-table-column flex-1" }, [_c("p")])
       ]
     )
   }
@@ -32072,16 +32061,13 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "sym-table-header" },
+        { staticClass: "sym-table-header flex" },
         _vm._l(_vm.columns, function(column, i) {
           return _c(
             "div",
             {
-              staticClass: "sym-table-column cursor-pointer",
-              class: [
-                "sym-table-column-" + column.width,
-                { "sym-table-column-l": i !== _vm.columns.length - 1 }
-              ],
+              staticClass: "sym-table-column cursor-pointer flex-1",
+              class: [{ "sym-table-column-l": i !== _vm.columns.length - 1 }],
               on: {
                 click: function($event) {
                   $event.preventDefault()
@@ -32145,7 +32131,8 @@ var render = function() {
                     "div",
                     {
                       key: i,
-                      staticClass: "sym-table-item sym-table-item-selectable",
+                      staticClass:
+                        "sym-table-item sym-table-item-selectable flex",
                       class: {
                         "sym-table-item-selected": _vm.isSelected(user)
                       },
@@ -32160,7 +32147,7 @@ var render = function() {
                         "div",
                         {
                           staticClass:
-                            "sym-table-column sym-table-column-40 sym-table-column-l",
+                            "sym-table-column flex-1 sym-table-column-l",
                           attrs: { "data-column": "name" }
                         },
                         [
@@ -32217,7 +32204,7 @@ var render = function() {
                         "div",
                         {
                           staticClass:
-                            "sym-table-column sym-table-column-30 sym-table-column-l",
+                            "sym-table-column flex-1 sym-table-column-l",
                           attrs: { "data-column": "type" }
                         },
                         [
@@ -32235,7 +32222,7 @@ var render = function() {
                       _c(
                         "div",
                         {
-                          staticClass: "sym-table-column sym-table-column-30",
+                          staticClass: "sym-table-column flex-1",
                           attrs: { "data-column": "roles" }
                         },
                         [
