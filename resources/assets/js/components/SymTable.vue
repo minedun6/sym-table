@@ -1,11 +1,11 @@
 <template>
-    <div class="sym-table" :class="{ 'sym-table-item-selected' : selectedItem !== null }">
+    <div class="sym-table" :class="{ 'sym-table-item-selected' : selectedItem !== null , 'sym-table-empty' : users !== null && users.length <= 0 }">
         <div class="flex justify-end mb-2">
             <div class="relative my-2">
                 <input type="search" class="bg-purple-white shadow rounded border-0 p-2 pl-8"
                        placeholder="Search...">
                 <div class="absolute pin-l pin-t mt-2 ml-2 text-purple-lighter">
-                    <svg version="1.1" class="h-4 text-dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    <svg version="1.1" class="h-4 text-dark" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                         viewBox="0 0 52.966 52.966" style="enable-background:new 0 0 52.966 52.966;" xml:space="preserve">
                             <path d="M51.704,51.273L36.845,35.82c3.79-3.801,6.138-9.041,6.138-14.82c0-11.58-9.42-21-21-21s-21,9.42-21,21s9.42,21,21,21
                             c5.083,0,9.748-1.817,13.384-4.832l14.895,15.491c0.196,0.205,0.458,0.307,0.721,0.307c0.25,0,0.499-0.093,0.693-0.279
@@ -41,7 +41,7 @@
 
         <div class="sym-table-items">
             <template v-if="users">
-                <div v-for="(user, i) in sortedUsers" class="sym-table-item sym-table-item-selectable" :class="isSelected(user)" :key="i" @click="toggleDetails(user)">
+                <div v-for="(user, i) in sortedUsers" class="sym-table-item sym-table-item-selectable" :class="{ 'sym-table-item-selected' : isSelected(user) }" :key="i" @click="toggleDetails(user)">
 
                     <div class="sym-table-column sym-table-column-40 sym-table-column-l" data-column="name">
                         <p class="sym-table-item-avatar sym-user-avatar">
@@ -127,12 +127,14 @@
                         return 'BO User / Recipient'
                     }
                 }
+            },
+            isSelected() {
+                return (user) => {
+                    return this.selectedItem !== null && user.id === this.selectedItem.id
+                }
             }
         },
         methods: {
-            isSelected(user) {
-                return { 'sym-table-item-selected' : this.selectedItem !== null && user.id === this.selectedItem.id }
-            },
             toggleDetails(item) {
                 if (this.selectedItem === null) {
                     this.selectedItem = item

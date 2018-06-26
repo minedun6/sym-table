@@ -377,33 +377,6 @@ module.exports = {
 /* 1 */
 /***/ (function(module, exports) {
 
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
 /*
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
@@ -483,7 +456,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 3 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -711,7 +684,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -817,6 +790,33 @@ module.exports = function normalizeComponent (
     options: options
   }
 }
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
 
 
 /***/ }),
@@ -1386,7 +1386,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(59);
+module.exports = __webpack_require__(64);
 
 
 /***/ }),
@@ -12365,7 +12365,7 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(15).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(15).setImmediate))
 
 /***/ }),
 /* 15 */
@@ -12435,7 +12435,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
 /* 16 */
@@ -12628,7 +12628,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(6)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(6)))
 
 /***/ }),
 /* 17 */
@@ -12639,11 +12639,11 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(18)
 }
-var normalizeComponent = __webpack_require__(4)
+var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(21)
 /* template */
-var __vue_template__ = __webpack_require__(58)
+var __vue_template__ = __webpack_require__(63)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -12660,7 +12660,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\SymTable.vue"
+Component.options.__file = "resources/assets/js/components/SymTable.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -12669,9 +12669,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-64824784", Component.options)
+    hotAPI.createRecord("data-v-7ac9a204", Component.options)
   } else {
-    hotAPI.reload("data-v-64824784", Component.options)
+    hotAPI.reload("data-v-7ac9a204", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -12692,13 +12692,13 @@ var content = __webpack_require__(19);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("2254c152", content, false, {});
+var update = __webpack_require__(2)("2f3b8939", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-64824784\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymTable.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-64824784\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymTable.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7ac9a204\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymTable.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7ac9a204\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymTable.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -12711,7 +12711,7 @@ if(false) {
 /* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)(false);
+exports = module.exports = __webpack_require__(1)(false);
 // imports
 
 
@@ -12894,12 +12894,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     return 'BO User / Recipient';
                 }
             };
+        },
+        isSelected: function isSelected() {
+            var _this = this;
+
+            return function (user) {
+                return _this.selectedItem !== null && user.id === _this.selectedItem.id;
+            };
         }
     },
     methods: {
-        isSelected: function isSelected(user) {
-            return { 'sym-table-item-selected': this.selectedItem !== null && user.id === this.selectedItem.id };
-        },
         toggleDetails: function toggleDetails(item) {
             if (this.selectedItem === null) {
                 this.selectedItem = item;
@@ -12920,12 +12924,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     mounted: function mounted() {
-        var _this = this;
+        var _this2 = this;
 
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/data').then(function (res) {
             setTimeout(function () {
-                _this.users = res.data.users;
-                _this.roles = res.data.roles;
+                _this2.users = res.data.users;
+                _this2.roles = res.data.roles;
             }, 2000);
         });
     }
@@ -30930,7 +30934,7 @@ module.exports = function spread(callback) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(42)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(42)(module)))
 
 /***/ }),
 /* 42 */
@@ -30969,7 +30973,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(44)
 }
-var normalizeComponent = __webpack_require__(4)
+var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(46)
 /* template */
@@ -30979,7 +30983,7 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-11361f78"
+var __vue_scopeId__ = "data-v-4d3d6584"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -30990,7 +30994,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\FakeItemPlaceHolder.vue"
+Component.options.__file = "resources/assets/js/components/FakeItemPlaceHolder.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -30999,9 +31003,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-11361f78", Component.options)
+    hotAPI.createRecord("data-v-4d3d6584", Component.options)
   } else {
-    hotAPI.reload("data-v-11361f78", Component.options)
+    hotAPI.reload("data-v-4d3d6584", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -31022,13 +31026,13 @@ var content = __webpack_require__(45);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("638d9ea4", content, false, {});
+var update = __webpack_require__(2)("36e4d787", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-11361f78\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FakeItemPlaceHolder.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-11361f78\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FakeItemPlaceHolder.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4d3d6584\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FakeItemPlaceHolder.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4d3d6584\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FakeItemPlaceHolder.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -31041,12 +31045,12 @@ if(false) {
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)(false);
+exports = module.exports = __webpack_require__(1)(false);
 // imports
 
 
 // module
-exports.push([module.i, "/* fake */\n.sym-table-empty .sym-table-item-fake[data-v-11361f78] {\n  display: block;\n}\n.sym-table-item-fake.sym-table-item-selected[data-v-11361f78] {\n  /*display: block;*/\n}\n.sym-table-item-fake .sym-table-column > p[data-v-11361f78] {\n  display: block;\n  height: 10px;\n  width: 20%;\n  background: #f1f1f4;\n  border-radius: 4px;\n  margin: 30px auto !important;\n}\n.sym-table-item-fake .sym-table-column-l > p[data-v-11361f78] {\n  margin: 30px 10px !important;\n}\n.sym-table-item-fake .sym-table-column-r > p[data-v-11361f78] {\n  margin: 30px 10px !important;\n  float: right;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-avatar[data-v-11361f78] {\n  position: relative;\n  float: left;\n  margin: 10px 10px !important;\n  overflow: hidden;\n  width: 50px;\n  height: 50px;\n  border-radius: 25px;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-avatar[data-v-11361f78]::before {\n  content: '';\n  position: absolute;\n  top: 11px;\n  left: 15px;\n  width: 20px;\n  height: 20px;\n  border-radius: 10px;\n  background: #fff;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-avatar[data-v-11361f78]::after {\n  content: '';\n  position: absolute;\n  top: 27px;\n  left: 8px;\n  width: 35px;\n  height: 40px;\n  border-radius: 18px;\n  background: #fff;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-name[data-v-11361f78] {\n  width: 100px;\n  margin: 20px 0 0 60px !important;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-email[data-v-11361f78] {\n  width: 160px;\n  margin: 10px 0 0 60px !important;\n}\n@-webkit-keyframes placeHolderShimmer-data-v-11361f78 {\n0% {\n    background-position: -468px 0;\n}\n100% {\n    background-position: 468px 0;\n}\n}\n@keyframes placeHolderShimmer-data-v-11361f78 {\n0% {\n    background-position: -468px 0;\n}\n100% {\n    background-position: 468px 0;\n}\n}\n", ""]);
+exports.push([module.i, "/* fake */\n.sym-table-empty .sym-table-item-fake[data-v-4d3d6584] {\n  display: block;\n}\n.sym-table-item-fake.sym-table-item-selected[data-v-4d3d6584] {\n  /*display: block;*/\n}\n.sym-table-item-fake .sym-table-column > p[data-v-4d3d6584] {\n  display: block;\n  height: 10px;\n  width: 20%;\n  background: #f1f1f4;\n  border-radius: 4px;\n  margin: 30px auto !important;\n}\n.sym-table-item-fake .sym-table-column-l > p[data-v-4d3d6584] {\n  margin: 30px 10px !important;\n}\n.sym-table-item-fake .sym-table-column-r > p[data-v-4d3d6584] {\n  margin: 30px 10px !important;\n  float: right;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-avatar[data-v-4d3d6584] {\n  position: relative;\n  float: left;\n  margin: 10px 10px !important;\n  overflow: hidden;\n  width: 50px;\n  height: 50px;\n  border-radius: 25px;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-avatar[data-v-4d3d6584]::before {\n  content: '';\n  position: absolute;\n  top: 11px;\n  left: 15px;\n  width: 20px;\n  height: 20px;\n  border-radius: 10px;\n  background: #fff;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-avatar[data-v-4d3d6584]::after {\n  content: '';\n  position: absolute;\n  top: 27px;\n  left: 8px;\n  width: 35px;\n  height: 40px;\n  border-radius: 18px;\n  background: #fff;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-name[data-v-4d3d6584] {\n  width: 100px;\n  margin: 20px 0 0 60px !important;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-email[data-v-4d3d6584] {\n  width: 160px;\n  margin: 10px 0 0 60px !important;\n}\n@-webkit-keyframes placeHolderShimmer-data-v-4d3d6584 {\n0% {\n    background-position: -468px 0;\n}\n100% {\n    background-position: 468px 0;\n}\n}\n@keyframes placeHolderShimmer-data-v-4d3d6584 {\n0% {\n    background-position: -468px 0;\n}\n100% {\n    background-position: 468px 0;\n}\n}\n", ""]);
 
 // exports
 
@@ -31137,7 +31141,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-11361f78", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-4d3d6584", module.exports)
   }
 }
 
@@ -31150,11 +31154,11 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(49)
 }
-var normalizeComponent = __webpack_require__(4)
+var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(51)
 /* template */
-var __vue_template__ = __webpack_require__(57)
+var __vue_template__ = __webpack_require__(62)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -31171,7 +31175,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\SymItemDetails.vue"
+Component.options.__file = "resources/assets/js/components/SymItemDetails.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -31180,9 +31184,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-02aac99f", Component.options)
+    hotAPI.createRecord("data-v-4e2e0c5f", Component.options)
   } else {
-    hotAPI.reload("data-v-02aac99f", Component.options)
+    hotAPI.reload("data-v-4e2e0c5f", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -31203,13 +31207,13 @@ var content = __webpack_require__(50);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("3519cfaa", content, false, {});
+var update = __webpack_require__(2)("9d0601b0", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-02aac99f\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymItemDetails.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-02aac99f\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymItemDetails.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4e2e0c5f\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymItemDetails.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4e2e0c5f\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymItemDetails.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -31222,12 +31226,12 @@ if(false) {
 /* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)(false);
+exports = module.exports = __webpack_require__(1)(false);
 // imports
 
 
 // module
-exports.push([module.i, "/*-----------------------------------------------------------------------------*/\n\n/* -> Details <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-table-item-selected .sym-table-item-details-users {\n  height: 360px;\n}\n.sym-table-item-selected .sym-table-item-details-roles {\n  height: 360px;\n}\n.sym-table-item-selected .sym-table-item-details-affiliates {\n  height: 360px;\n}\n.sym-table-item-details {\n  background-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n}\n.sym-table-item-details > div.sym-table-item-details-container {\n  padding: 0;\n}\n.sym-table-item-details > div > div {\n  position: relative;\n  margin-bottom: 15px;\n  padding: 15px;\n  background-color: #fff;\n  -webkit-box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .3);\n          box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .3);\n}\n\n/*-----------------------------------------------------------------------------*/\n\n/* -> User form <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-form-group-user[data-form=\"user-basic\"] {\n  height: 200px;\n}\n.sym-form-group-user[data-form=\"user-basic\"] .sym-input-container {\n  float: left;\n  width: 50%;\n  margin: 15px 0;\n}\n.sym-form-group-user[data-form=\"user-basic\"] .sym-input-container:nth-child(2n+1) {\n  padding-right: 8px;\n}\n.sym-form-group-user[data-form=\"user-basic\"] .sym-input-container:nth-child(2n) {\n  padding-left: 8px;\n}\n.sym-form-group-user[data-form=\"user-basic\"] .sym-input-container:nth-child(2n) label {\n  left: 13px;\n}\n.sym-form-group-user[data-form=\"user-basic\"] .sym-input-container input {\n  width: 100%;\n}\n.sym-table-item-selected:not([data-id=\"\"]) ~ .sym-table-item-details .sym-input[type=\"password\"] ~ label sup {\n  display: none;\n}\n\n/*-----------------------------------------------------------------------------*/\n\n/* -> User type <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-form-group-user[data-form=\"user-type\"] {\n  display: inline-block;\n  margin: 10px -4px 10px 0;\n  width: 50%;\n  vertical-align: top;\n}\n.sym-table-item-details-loading .sym-radio-container label {\n  position: relative;\n  top: -10px;\n  font-size: 0;\n  width: 100px;\n  height: 10px;\n  border-radius: 5px;\n  background-color: #f1f1f4;\n}\n\n/*-----------------------------------------------------------------------------*/\n\n/* -> User roles <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-form-group-user[data-form=\"user-roles\"] {\n  display: inline-block;\n  margin: 10px 0;\n  width: 50%;\n}\n.sym-table-item-details[data-user-type=\"0\"] .sym-form-group-user[data-form=\"user-roles\"] {\n  display: none;\n}\n.role-icon-time-boxed {\n  margin-left: -17px;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .tooltip-inner {\n  background: #2196f3;\n  font-size: 14px;\n  line-height: 140%;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .tooltip-arrow {\n  border-left-color: #2196f3 !important;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .form-group {\n  display: inline-block;\n  margin-left: 10px;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .form-group.symmetryk-loading-block {\n  width: 25px;\n  height: 25px;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .form-group.symmetryk-loading-block .sym-select-user-roles {\n  display: none;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .sym-select-container > label {\n  margin-left: 10px;\n  vertical-align: top;\n}\n.sym-form-group-user[data-form=\"user-roles\"] button {\n  top: -5px;\n  height: 35px;\n  background-color: #2196f3 !important;\n  border: none !important;\n  border-radius: 4px !important;\n  -webkit-box-shadow: none !important;\n          box-shadow: none !important;\n}\n.sym-form-group-user[data-form=\"user-roles\"] input {\n  border: 1px solid #2196f3;\n}\n.sym-form-group-user[data-form=\"user-roles\"] button span,\n.sym-form-group-user[data-form=\"user-roles\"] input {\n  font-family: 'Lato' !important;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .input-group-addon {\n  background-color: #2196f3;\n  border: 1px solid #2196f3;\n  width: 40px !important;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .multiselect-container {\n  position: absolute !important;\n  top: 30px !important;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .multiselect-clear-filter {\n  display: none;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .multiselect-filter .input-group {\n  width: 100%;\n  padding-right: 7px;\n}\n\n/*-----------------------------------------------------------------------------*/\n\n/* -> User permissions <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-form-group-user[data-form=\"user-permissions\"] {\n  height: 0;\n  overflow: hidden;\n  -webkit-transition: all 300ms;\n          transition: all 300ms;\n}\n.sym-table-item-details[data-user-type=\"0\"] .sym-form-group-user[data-form=\"user-permissions\"] {\n  display: none;\n}\n.sym-form-group-user[data-form=\"user-permissions\"].sym-form-group-permissions-open {\n  height: 420px;\n}\n.sym-form-group-user[data-form=\"user-permissions\"].sym-form-group-permissions-disabled .sym-table-items {\n  position: relative;\n}\n.sym-form-group-user[data-form=\"user-permissions\"].sym-form-group-permissions-disabled .sym-table-items::after {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  cursor: not-allowed;\n  background-color: #fff;\n  opacity: .2;\n  z-index: 99;\n}\n.sym-btn-user-permission {\n  float: left !important;\n  border: 1px solid #2196f3;\n  margin-left: 0 !important;\n}\n.sym-table-item-details[data-user-type=\"0\"] .sym-btn-user-permission,\n.sym-table-item-details-loading .sym-btn-user-permission {\n  display: none;\n}\n.sym-btn-user-permission p {\n  color: #2196f3;\n}\n.sym-btn-user-permission[data-state=\"open\"] p:first-child {\n  display: none;\n}\n.sym-btn-user-permission[data-state=\"close\"] p:last-child {\n  display: none;\n}\n.sym-table-module-permission .sym-table-items .sym-table-column > * {\n  margin: 0 !important;\n  text-align: left !important;\n}\n.sym-table-module-permission .sym-table-items .sym-table-column {\n  padding: 0 0 0 10px;\n}\n.sym-table-module-permission .sym-table-column > div > .sym-check-container {\n  margin-right: 30px;\n}\n.sym-table-module-permission .sym-table-column > div > .sym-check-container-principle {\n  margin-right: 50px;\n}\n.sym-permissions-wrapper {\n  padding: 12px 0 8px 0;\n}\n.sym-permissions-wrapper-fake label {\n  position: relative;\n  top: 3px;\n  left: 6px;\n  width: 100px;\n  height: 10px;\n  border-radius: 5px;\n  background-color: #f1f1f4;\n}\n\n/*-----------------------------------------------------------------------------*/\n\n/* -> Details actions <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-form-group-buttons {\n  position: relative;\n  margin-top: 35px;\n}\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-btn-add[data-action=\"user-notify\"],\n.sym-table-item-details-loading .sym-btn-add[data-action=\"user-notify\"],\n.sym-table-item-details .sym-btn-create[data-action=\"user-create\"],\n.sym-table-item-details .sym-btn-create[data-action=\"role-create\"],\n.sym-table-item-details .sym-btn-create[data-action=\"affiliate-create\"],\n.sym-table-item-details .sym-check-container[data-action=\"user-check-create-notify\"],\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-btn-create[data-action=\"user-update\"],\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-btn-create[data-action=\"role-update\"],\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-btn-create[data-action=\"affiliate-update\"],\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-check-container[data-action=\"user-check-update-notify\"] {\n  display: none;\n}\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-btn-create[data-action=\"user-create\"],\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-btn-create[data-action=\"role-create\"],\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-btn-create[data-action=\"affiliate-create\"],\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-check-container[data-action=\"user-check-create-notify\"] {\n  display: inline-block;\n}\n.sym-check-container[data-action*=\"user-check\"] {\n  float: right;\n  top: 28%;\n}\n.sym-check-container[data-action*=\"user-check\"] label {\n  padding-right: 5px;\n  color: #2196f3;\n}\n\n/*-----------------------------------------------------------------------------*/\n\n/* -> User devices & data <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-table-item-details-loading .sym-table-item-details-container-wrapper[data-form=\"user-devices\"]::after,\n.sym-table-item-details[data-user-type=\"1\"] .sym-table-item-details-container-wrapper[data-form=\"user-devices\"]::after,\n.sym-table-item-details-loading .sym-table-item-details-container-wrapper[data-form=\"user-data\"]::after,\n.sym-table-item-details[data-user-type=\"1\"] .sym-table-item-details-container-wrapper[data-form=\"user-data\"]::after {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(255, 255, 255, .4);\n  cursor: not-allowed;\n  z-index: 999;\n}\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-table-item-details-container-wrapper[data-form=\"user-devices\"],\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-table-item-details-container-wrapper[data-form=\"user-data\"] {\n  display: none;\n}\n\n/*-----------------------------------------------------------------------------*/\n\n/* -> User devices <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-table-column-device-connected-0 .sym-pastil,\n.sym-table-column-device-connected-0 .tooltip-inner {\n  background-color: #ff5e56;\n}\n.sym-table-column-device-connected-0 .tooltip-arrow {\n  border-top-color: #ff5e56 !important;\n}\n.sym-table-column-device-connected-1 .sym-pastil,\n.sym-table-column-device-connected-1 .tooltip-inner {\n  background-color: #72daa2;\n}\n.sym-table-column-device-connected-1 .tooltip-arrow {\n  border-top-color: #72daa2 !important;\n}\n\n/*-----------------------------------------------------------------------------*/\n\n/* -> User data <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-form-group-buttons[data-form=\"user-data-button\"] {\n  margin-top: 20px;\n}\n.sym-reset-rep-data-options > div {\n  padding: 0 80px 10px 0;\n}\n.sym-reset-rep-data-options label i {\n  font-size: 80%;\n  color: #2196f3;\n}\n\n/*-----------------------------------------------------------------------------*/\n\n/* -> Forms <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-form-group {\n  background-color: #fff;\n}\n.sym-form-group-title {\n  font-size: 18px;\n  color: #2196f3;\n  margin-bottom: 15px;\n}\n.sym-form-group-title-error {\n  color: #fb7e69;\n}\n.sym-form-group-header {\n  border-bottom: 1px solid #f3f4f5;\n  margin: 0 -15px;\n  padding: 0 15px 15px;\n}\n.sym-form-group-header h3 {\n  margin: 0;\n  color: #2196f3;\n  font-size: 18px;\n}\n.sym-form-group-body {\n  padding-top: 15px;\n}\n\n/* radio */\n.sym-radio-container {\n  position: relative;\n  display: inline-block;\n  padding: 0 20px 0 0;\n}\n.sym-radio-container label {\n  color: #525a64;\n  padding-right: 2px;\n}\n.sym-radio-container input {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  z-index: 14;\n  cursor: pointer;\n}\n.sym-radio-container span {\n  position: relative;\n  display: inline-block;\n  top: 3px;\n  width: 15px;\n  height: 15px;\n  border: 1px solid #ccced5;\n  border-radius: 8px;\n}\n.sym-radio-container span::after {\n  content: '';\n  display: none;\n  position: absolute;\n  top: 3px;\n  left: 3px;\n  width: 7px;\n  height: 7px;\n  background-color: #2196f3;\n  border-radius: 8px;\n}\n.sym-radio-container input:checked ~ span::after {\n  display: block;\n}\n\n/* check */\n.sym-check-container {\n  position: relative;\n  display: inline-block;\n  padding: 0 10px 0 0;\n}\n.sym-check-container label {\n  color: #525a64;\n  padding-left: 7px;\n}\n.sym-check-container-principle label {\n  color: #2196f3;\n}\n.sym-check-container input {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  z-index: 14;\n  cursor: pointer;\n}\n.sym-check-container span {\n  position: relative;\n  display: inline-block;\n  top: 1px;\n  width: 15px;\n  height: 15px;\n  border: 1px solid #ccced5;\n}\n.sym-check-container span::after {\n  content: '';\n  display: none;\n  position: absolute;\n  bottom: 6px;\n  left: 6px;\n  width: 8px;\n  height: 16px;\n  border-bottom: 1px solid #2196f3;\n  border-right: 1px solid #2196f3;\n  -webkit-transform: rotate(60deg) skew(25deg);\n          transform: rotate(60deg) skew(25deg);\n}\n.sym-check-container input:checked ~ span::after {\n  display: block;\n}\n\n/* select */\n.sym-select-container label {\n  color: #525a64;\n}\n.sym-select-container li.active label {\n  color: #fff !important;\n}\n\n/* user roles */\n.sym-table-item:not(.sym-table-item-fake) .sym-table-column[data-column=\"roles\"] {\n  display: table;\n  height: 100%;\n}\n.sym-table-item:not(.sym-table-item-fake) .sym-table-column[data-column=\"roles\"] p {\n  display: table-cell;\n  vertical-align: middle;\n}\n.sym-table-item:not(.sym-table-item-fake) .sym-table-column[data-column=\"roles\"] p > span {\n  display: block;\n}\n.sym-table-item:not(.sym-table-item-fake) .sym-table-column[data-column=\"roles\"] p > span i {\n  font-size: 12px;\n  padding-left: 5px;\n  width: 0;\n  display: inline-block;\n}\n.sym-table-column[data-column=\"roles\"] .tooltip-inner {\n  background: #2196f3;\n  font-size: 14px;\n  line-height: 140%;\n}\n.sym-table-column[data-column=\"roles\"] .tooltip-arrow {\n  border-left-color: #2196f3 !important;\n}\n.sym-table-item-no-match {\n  display: none;\n}\n\n/* user notified */\n.sym-table-item[data-user-notified=\"0\"] .sym-table-column[data-column=\"notified\"] p {\n  margin-right: 20px;\n  color: #ff7e69;\n}\n.sym-table-item[data-user-notified=\"1\"] .sym-table-column[data-column=\"notified\"] p {\n  margin-right: 20px;\n  color: #72daa2;\n}\n\n/* details */\n.sym-table-item-selected .sym-table-column[data-column=\"name\"] {\n  width: 400px !important;\n}\n.sym-table-item-selected .sym-table-column[data-column=\"type\"],\n.sym-table-item-selected .sym-table-column[data-column=\"roles\"],\n.sym-table-item-selected .sym-table-column[data-column=\"notified\"] {\n  display: none !important;\n}\n\n/* Modals */\n.sym-modal-placeholder-user-name {\n  font-size: 105%;\n  color: #15a4fa;\n}\n\n/* actions */\n.sym-table-column-action[data-action=\"authorize-user\"] {\n  margin-top: 20px;\n}\n", ""]);
+exports.push([module.i, "/*-----------------------------------------------------------------------------*/\n\n/* -> Details <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-table-item-selected .sym-table-item-details-users {\n  height: 360px;\n}\n.sym-table-item-selected .sym-table-item-details-roles {\n  height: 360px;\n}\n.sym-table-item-selected .sym-table-item-details-affiliates {\n  height: 360px;\n}\n.sym-table-item-details {\n  background-color: transparent;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n}\n.sym-table-item-details > div.sym-table-item-details-container {\n  padding: 0;\n}\n.sym-table-item-details > div > div {\n  position: relative;\n  margin-bottom: 15px;\n  padding: 15px;\n  background-color: #fff;\n  -webkit-box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .3);\n          box-shadow: 0 5px 5px -5px rgba(0, 0, 0, .3);\n}\n\n/*-----------------------------------------------------------------------------*/\n\n/* -> User form <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-form-group-user[data-form=\"user-basic\"] {\n  height: 200px;\n}\n.sym-form-group-user[data-form=\"user-basic\"] .sym-input-container {\n  float: left;\n  width: 50%;\n  margin: 15px 0;\n}\n.sym-form-group-user[data-form=\"user-basic\"] .sym-input-container:nth-child(2n+1) {\n  padding-right: 8px;\n}\n.sym-form-group-user[data-form=\"user-basic\"] .sym-input-container:nth-child(2n) {\n  padding-left: 8px;\n}\n.sym-form-group-user[data-form=\"user-basic\"] .sym-input-container:nth-child(2n) label {\n  left: 13px;\n}\n.sym-form-group-user[data-form=\"user-basic\"] .sym-input-container input {\n  width: 100%;\n}\n.sym-table-item-selected:not([data-id=\"\"]) ~ .sym-table-item-details .sym-input[type=\"password\"] ~ label sup {\n  display: none;\n}\n\n/*-----------------------------------------------------------------------------*/\n\n/* -> User type <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-form-group-user[data-form=\"user-type\"] {\n  display: inline-block;\n  margin: 10px -4px 10px 0;\n  width: 50%;\n  vertical-align: top;\n}\n.sym-table-item-details-loading .sym-radio-container label {\n  position: relative;\n  top: -10px;\n  font-size: 0;\n  width: 100px;\n  height: 10px;\n  border-radius: 5px;\n  background-color: #f1f1f4;\n}\n\n/*-----------------------------------------------------------------------------*/\n\n/* -> User roles <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-form-group-user[data-form=\"user-roles\"] {\n  display: inline-block;\n  margin: 10px 0;\n  width: 50%;\n}\n.sym-table-item-details[data-user-type=\"0\"] .sym-form-group-user[data-form=\"user-roles\"] {\n  display: none;\n}\n.role-icon-time-boxed {\n  margin-left: -17px;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .tooltip-inner {\n  background: #2196f3;\n  font-size: 14px;\n  line-height: 140%;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .tooltip-arrow {\n  border-left-color: #2196f3 !important;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .form-group {\n  display: inline-block;\n  margin-left: 10px;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .form-group.symmetryk-loading-block {\n  width: 25px;\n  height: 25px;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .form-group.symmetryk-loading-block .sym-select-user-roles {\n  display: none;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .sym-select-container > label {\n  margin-left: 10px;\n  vertical-align: top;\n}\n.sym-form-group-user[data-form=\"user-roles\"] button {\n  top: -5px;\n  height: 35px;\n  background-color: #2196f3 !important;\n  border: none !important;\n  border-radius: 4px !important;\n  -webkit-box-shadow: none !important;\n          box-shadow: none !important;\n}\n.sym-form-group-user[data-form=\"user-roles\"] input {\n  border: 1px solid #2196f3;\n}\n.sym-form-group-user[data-form=\"user-roles\"] button span,\n.sym-form-group-user[data-form=\"user-roles\"] input {\n  font-family: 'Lato' !important;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .input-group-addon {\n  background-color: #2196f3;\n  border: 1px solid #2196f3;\n  width: 40px !important;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .multiselect-container {\n  position: absolute !important;\n  top: 30px !important;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .multiselect-clear-filter {\n  display: none;\n}\n.sym-form-group-user[data-form=\"user-roles\"] .multiselect-filter .input-group {\n  width: 100%;\n  padding-right: 7px;\n}\n\n/*-----------------------------------------------------------------------------*/\n\n/* -> User permissions <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-form-group-user[data-form=\"user-permissions\"] {\n  height: 0;\n  overflow: hidden;\n  -webkit-transition: all 300ms;\n          transition: all 300ms;\n}\n.sym-table-item-details[data-user-type=\"0\"] .sym-form-group-user[data-form=\"user-permissions\"] {\n  display: none;\n}\n.sym-form-group-user[data-form=\"user-permissions\"].sym-form-group-permissions-open {\n  height: 420px;\n}\n.sym-form-group-user[data-form=\"user-permissions\"].sym-form-group-permissions-disabled .sym-table-items {\n  position: relative;\n}\n.sym-form-group-user[data-form=\"user-permissions\"].sym-form-group-permissions-disabled .sym-table-items::after {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  cursor: not-allowed;\n  background-color: #fff;\n  opacity: .2;\n  z-index: 99;\n}\n.sym-btn-user-permission {\n  float: left !important;\n  border: 1px solid #2196f3;\n  margin-left: 0 !important;\n}\n.sym-table-item-details[data-user-type=\"0\"] .sym-btn-user-permission,\n.sym-table-item-details-loading .sym-btn-user-permission {\n  display: none;\n}\n.sym-btn-user-permission p {\n  color: #2196f3;\n}\n.sym-btn-user-permission[data-state=\"open\"] p:first-child {\n  display: none;\n}\n.sym-btn-user-permission[data-state=\"close\"] p:last-child {\n  display: none;\n}\n.sym-table-module-permission .sym-table-items .sym-table-column > * {\n  margin: 0 !important;\n  text-align: left !important;\n}\n.sym-table-module-permission .sym-table-items .sym-table-column {\n  padding: 0 0 0 10px;\n}\n.sym-table-module-permission .sym-table-column > div > .sym-check-container {\n  margin-right: 30px;\n}\n.sym-table-module-permission .sym-table-column > div > .sym-check-container-principle {\n  margin-right: 50px;\n}\n.sym-permissions-wrapper {\n  padding: 12px 0 8px 0;\n}\n.sym-permissions-wrapper-fake label {\n  position: relative;\n  top: 3px;\n  left: 6px;\n  width: 100px;\n  height: 10px;\n  border-radius: 5px;\n  background-color: #f1f1f4;\n}\n\n/*-----------------------------------------------------------------------------*/\n\n/* -> Details actions <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-form-group-buttons {\n  position: relative;\n  margin-top: 35px;\n}\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-btn-add[data-action=\"user-notify\"],\n.sym-table-item-details-loading .sym-btn-add[data-action=\"user-notify\"],\n.sym-table-item-details .sym-btn-create[data-action=\"user-create\"],\n.sym-table-item-details .sym-btn-create[data-action=\"role-create\"],\n.sym-table-item-details .sym-btn-create[data-action=\"affiliate-create\"],\n.sym-table-item-details .sym-check-container[data-action=\"user-check-create-notify\"],\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-btn-create[data-action=\"user-update\"],\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-btn-create[data-action=\"role-update\"],\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-btn-create[data-action=\"affiliate-update\"],\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-check-container[data-action=\"user-check-update-notify\"] {\n  display: none;\n}\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-btn-create[data-action=\"user-create\"],\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-btn-create[data-action=\"role-create\"],\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-btn-create[data-action=\"affiliate-create\"],\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-check-container[data-action=\"user-check-create-notify\"] {\n  display: inline-block;\n}\n.sym-check-container[data-action*=\"user-check\"] {\n  float: right;\n  top: 28%;\n}\n.sym-check-container[data-action*=\"user-check\"] label {\n  padding-right: 5px;\n  color: #2196f3;\n}\n\n/*-----------------------------------------------------------------------------*/\n\n/* -> User devices & data <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-table-item-details-loading .sym-table-item-details-container-wrapper[data-form=\"user-devices\"]::after,\n.sym-table-item-details[data-user-type=\"1\"] .sym-table-item-details-container-wrapper[data-form=\"user-devices\"]::after,\n.sym-table-item-details-loading .sym-table-item-details-container-wrapper[data-form=\"user-data\"]::after,\n.sym-table-item-details[data-user-type=\"1\"] .sym-table-item-details-container-wrapper[data-form=\"user-data\"]::after {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(255, 255, 255, .4);\n  cursor: not-allowed;\n  z-index: 999;\n}\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-table-item-details-container-wrapper[data-form=\"user-devices\"],\n.sym-table-item-selected[data-id=\"\"] ~ .sym-table-item-details .sym-table-item-details-container-wrapper[data-form=\"user-data\"] {\n  display: none;\n}\n\n/*-----------------------------------------------------------------------------*/\n\n/* -> User devices <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-table-column-device-connected-0 .sym-pastil,\n.sym-table-column-device-connected-0 .tooltip-inner {\n  background-color: #ff5e56;\n}\n.sym-table-column-device-connected-0 .tooltip-arrow {\n  border-top-color: #ff5e56 !important;\n}\n.sym-table-column-device-connected-1 .sym-pastil,\n.sym-table-column-device-connected-1 .tooltip-inner {\n  background-color: #72daa2;\n}\n.sym-table-column-device-connected-1 .tooltip-arrow {\n  border-top-color: #72daa2 !important;\n}\n\n/*-----------------------------------------------------------------------------*/\n\n/* -> User data <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-form-group-buttons[data-form=\"user-data-button\"] {\n  margin-top: 20px;\n}\n.sym-reset-rep-data-options > div {\n  padding: 0 80px 10px 0;\n}\n.sym-reset-rep-data-options label i {\n  font-size: 80%;\n  color: #2196f3;\n}\n\n/*-----------------------------------------------------------------------------*/\n\n/* -> Forms <- */\n\n/*-----------------------------------------------------------------------------*/\n.sym-form-group {\n  background-color: #fff;\n}\n.sym-form-group-title {\n  font-size: 18px;\n  color: #2196f3;\n  margin-bottom: 15px;\n}\n.sym-form-group-title-error {\n  color: #fb7e69;\n}\n.sym-form-group-header {\n  border-bottom: 1px solid #f3f4f5;\n  margin: 0 -15px;\n  padding: 0 15px 15px;\n}\n.sym-form-group-header h3 {\n  margin: 0;\n  color: #2196f3;\n  font-size: 18px;\n}\n.sym-form-group-body {\n  padding-top: 15px;\n}\n\n/* check */\n.sym-check-container {\n  position: relative;\n  display: inline-block;\n  padding: 0 10px 0 0;\n}\n.sym-check-container label {\n  color: #525a64;\n  padding-left: 7px;\n}\n.sym-check-container-principle label {\n  color: #2196f3;\n}\n.sym-check-container input {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  z-index: 14;\n  cursor: pointer;\n}\n.sym-check-container span {\n  position: relative;\n  display: inline-block;\n  top: 1px;\n  width: 15px;\n  height: 15px;\n  border: 1px solid #ccced5;\n}\n.sym-check-container span::after {\n  content: '';\n  display: none;\n  position: absolute;\n  bottom: 6px;\n  left: 6px;\n  width: 8px;\n  height: 16px;\n  border-bottom: 1px solid #2196f3;\n  border-right: 1px solid #2196f3;\n  -webkit-transform: rotate(60deg) skew(25deg);\n          transform: rotate(60deg) skew(25deg);\n}\n.sym-check-container input:checked ~ span::after {\n  display: block;\n}\n\n/* select */\n.sym-select-container label {\n  color: #525a64;\n}\n.sym-select-container li.active label {\n  color: #fff !important;\n}\n\n/* user roles */\n.sym-table-item:not(.sym-table-item-fake) .sym-table-column[data-column=\"roles\"] {\n  display: table;\n  height: 100%;\n}\n.sym-table-item:not(.sym-table-item-fake) .sym-table-column[data-column=\"roles\"] p {\n  display: table-cell;\n  vertical-align: middle;\n}\n.sym-table-item:not(.sym-table-item-fake) .sym-table-column[data-column=\"roles\"] p > span {\n  display: block;\n}\n.sym-table-item:not(.sym-table-item-fake) .sym-table-column[data-column=\"roles\"] p > span i {\n  font-size: 12px;\n  padding-left: 5px;\n  width: 0;\n  display: inline-block;\n}\n.sym-table-column[data-column=\"roles\"] .tooltip-inner {\n  background: #2196f3;\n  font-size: 14px;\n  line-height: 140%;\n}\n.sym-table-column[data-column=\"roles\"] .tooltip-arrow {\n  border-left-color: #2196f3 !important;\n}\n.sym-table-item-no-match {\n  display: none;\n}\n\n/* user notified */\n.sym-table-item[data-user-notified=\"0\"] .sym-table-column[data-column=\"notified\"] p {\n  margin-right: 20px;\n  color: #ff7e69;\n}\n.sym-table-item[data-user-notified=\"1\"] .sym-table-column[data-column=\"notified\"] p {\n  margin-right: 20px;\n  color: #72daa2;\n}\n\n/* details */\n.sym-table-item-selected .sym-table-column[data-column=\"name\"] {\n  width: 400px !important;\n}\n.sym-table-item-selected .sym-table-column[data-column=\"type\"],\n.sym-table-item-selected .sym-table-column[data-column=\"roles\"],\n.sym-table-item-selected .sym-table-column[data-column=\"notified\"] {\n  display: none !important;\n}\n\n/* Modals */\n.sym-modal-placeholder-user-name {\n  font-size: 105%;\n  color: #15a4fa;\n}\n\n/* actions */\n.sym-table-column-action[data-action=\"authorize-user\"] {\n  margin-top: 20px;\n}\n", ""]);
 
 // exports
 
@@ -31240,6 +31244,8 @@ exports.push([module.i, "/*-----------------------------------------------------
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SymInputText__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SymInputText___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__SymInputText__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SymInputRadioBox__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SymInputRadioBox___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__SymInputRadioBox__);
 //
 //
 //
@@ -31323,864 +31329,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -32194,13 +31343,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 email: '',
                 email_confirm: '',
                 password: '',
-                password_confirm: ''
+                password_confirm: '',
+                user_type: 0
             }
         };
     },
 
     components: {
-        SymInputText: __WEBPACK_IMPORTED_MODULE_0__SymInputText___default.a
+        SymInputText: __WEBPACK_IMPORTED_MODULE_0__SymInputText___default.a,
+        SymInputRadioBox: __WEBPACK_IMPORTED_MODULE_1__SymInputRadioBox___default.a
     }
 });
 
@@ -32213,7 +31364,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(53)
 }
-var normalizeComponent = __webpack_require__(4)
+var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(55)
 /* template */
@@ -32234,7 +31385,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\SymInputText.vue"
+Component.options.__file = "resources/assets/js/components/SymInputText.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -32243,9 +31394,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5c034407", Component.options)
+    hotAPI.createRecord("data-v-10f836c7", Component.options)
   } else {
-    hotAPI.reload("data-v-5c034407", Component.options)
+    hotAPI.reload("data-v-10f836c7", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -32266,13 +31417,13 @@ var content = __webpack_require__(54);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("10f39de8", content, false, {});
+var update = __webpack_require__(2)("52b2a098", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5c034407\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymInputText.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5c034407\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymInputText.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-10f836c7\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymInputText.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-10f836c7\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymInputText.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -32285,7 +31436,7 @@ if(false) {
 /* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)(false);
+exports = module.exports = __webpack_require__(1)(false);
 // imports
 
 
@@ -32312,7 +31463,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['value', 'label', 'isRequired'],
+	props: ['value', 'type', 'label', 'isRequired'],
 	methods: {
 		handleInput: function handleInput(e) {
 			this.$emit('input', e.target.value);
@@ -32332,7 +31483,7 @@ var render = function() {
     _c("input", {
       staticClass: "sym-input",
       class: { "sym-input-empty": _vm.value === "" },
-      attrs: { type: "text", "data-input": "first_name" },
+      attrs: { type: _vm.type, "data-input": "first_name" },
       on: { input: _vm.handleInput }
     }),
     _vm._v(" "),
@@ -32348,12 +31499,262 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-5c034407", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-10f836c7", module.exports)
   }
 }
 
 /***/ }),
 /* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(58)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(60)
+/* template */
+var __vue_template__ = __webpack_require__(61)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/SymInputRadioBox.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-cce8fa2c", Component.options)
+  } else {
+    hotAPI.reload("data-v-cce8fa2c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(59);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("7c41b007", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-cce8fa2c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymInputRadioBox.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-cce8fa2c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymInputRadioBox.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "/* radio */\n.sym-radio-container {\n  position: relative;\n  display: inline-block;\n  padding: 0 20px 0 0;\n}\n.sym-radio-container label {\n  color: #525a64;\n  padding-right: 2px;\n}\n.sym-radio-container input {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  opacity: 0;\n  z-index: 14;\n  cursor: pointer;\n}\n.sym-radio-container span {\n  position: relative;\n  display: inline-block;\n  top: 3px;\n  width: 15px;\n  height: 15px;\n  border: 1px solid #ccced5;\n  border-radius: 8px;\n}\n.sym-radio-container span::after {\n  content: '';\n  display: none;\n  position: absolute;\n  top: 3px;\n  left: 3px;\n  width: 7px;\n  height: 7px;\n  background-color: #2196f3;\n  border-radius: 8px;\n}\n.sym-radio-container input:checked ~ span::after {\n  display: block;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 60 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    model: {
+        prop: 'modelValue',
+        event: 'input'
+    },
+    props: {
+        label: {
+            type: String,
+            required: true
+        },
+        value: {
+            default: ''
+        },
+        modelValue: {
+            default: undefined
+        },
+        checked: {
+            type: Boolean,
+            default: false
+        },
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        model: {}
+    },
+    methods: {
+        handleInput: function handleInput(e) {
+            this.toggle();
+        },
+        toggle: function toggle() {
+            this.$emit('input', this.state ? '' : this.value);
+        }
+    },
+    computed: {
+        state: function state() {
+            if (this.modelValue === undefined) {
+                return this.checked;
+            }
+            return this.modelValue === this.value;
+        }
+    },
+    watch: {
+        checked: function checked(newValue) {
+            if (newValue !== this.state) {
+                this.toggle();
+            }
+        }
+    },
+    mounted: function mounted() {
+        if (this.checked && !this.state) {
+            this.toggle();
+        }
+    }
+});
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "sym-radio-container" }, [
+    _c("label", [_vm._v(_vm._s(_vm.label))]),
+    _vm._v(" "),
+    _c("input", {
+      staticClass: "sym-input",
+      attrs: { type: "radio", disabled: _vm.disabled },
+      domProps: { value: _vm.value, checked: _vm.state },
+      on: { change: _vm.handleInput }
+    }),
+    _vm._v(" "),
+    _c("span")
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-cce8fa2c", module.exports)
+  }
+}
+
+/***/ }),
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -32378,7 +31779,7 @@ var render = function() {
             },
             [
               _c("sym-input-text", {
-                attrs: { label: "First Name", isRequired: true },
+                attrs: { type: "text", label: "First Name", isRequired: true },
                 model: {
                   value: _vm.form.first_name,
                   callback: function($$v) {
@@ -32389,7 +31790,7 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("sym-input-text", {
-                attrs: { label: "Last Name", isRequired: true },
+                attrs: { type: "text", label: "Last Name", isRequired: true },
                 model: {
                   value: _vm.form.last_name,
                   callback: function($$v) {
@@ -32400,7 +31801,7 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("sym-input-text", {
-                attrs: { label: "Email", isRequired: true },
+                attrs: { type: "text", label: "Email", isRequired: true },
                 model: {
                   value: _vm.form.email,
                   callback: function($$v) {
@@ -32411,7 +31812,11 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("sym-input-text", {
-                attrs: { label: "Re-type Email", isRequired: true },
+                attrs: {
+                  type: "text",
+                  label: "Re-type Email",
+                  isRequired: true
+                },
                 model: {
                   value: _vm.form.email_confirm,
                   callback: function($$v) {
@@ -32423,6 +31828,7 @@ var render = function() {
               _vm._v(" "),
               _c("sym-input-text", {
                 attrs: {
+                  type: "password",
                   label: "Password (at least 8 caracters)",
                   isRequired: true
                 },
@@ -32437,6 +31843,7 @@ var render = function() {
               _vm._v(" "),
               _c("sym-input-text", {
                 attrs: {
+                  type: "password",
                   label: "Re-type Password (at least 8 caracters)",
                   isRequired: true
                 },
@@ -32452,2346 +31859,56 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _vm._m(0),
+          _c(
+            "div",
+            {
+              staticClass: "sym-form-group sym-form-group-user",
+              attrs: { "data-form": "user-type" }
+            },
+            [
+              _c("sym-input-radio-box", {
+                attrs: { label: "Backoffice user", value: "1" },
+                model: {
+                  value: _vm.form.user_type,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "user_type", $$v)
+                  },
+                  expression: "form.user_type"
+                }
+              }),
+              _vm._v(" "),
+              _c("sym-input-radio-box", {
+                attrs: { label: "Recipient", value: "0" },
+                model: {
+                  value: _vm.form.user_type,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "user_type", $$v)
+                  },
+                  expression: "form.user_type"
+                }
+              }),
+              _vm._v(" "),
+              _c("sym-input-radio-box", {
+                attrs: { label: "Backoffice user and recipient", value: "2" },
+                model: {
+                  value: _vm.form.user_type,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "user_type", $$v)
+                  },
+                  expression: "form.user_type"
+                }
+              })
+            ],
+            1
+          ),
           _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
-          _vm._m(3)
-        ]),
-        _vm._v(" "),
-        _vm._m(4),
-        _vm._v(" "),
-        _vm._m(5)
+          _vm._m(0)
+        ])
       ])
     ]
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "sym-form-group sym-form-group-user",
-        attrs: { "data-form": "user-type" }
-      },
-      [
-        _c("div", { staticClass: "sym-radio-container" }, [
-          _c("label", [_vm._v("Backoffice user")]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "sym-input",
-            attrs: {
-              name: "sym-user-type",
-              type: "radio",
-              "data-user-type": "1",
-              checked: ""
-            }
-          }),
-          _vm._v(" "),
-          _c("span")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "sym-radio-container" }, [
-          _c("label", [_vm._v("Recipient")]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "sym-input",
-            attrs: {
-              name: "sym-user-type",
-              type: "radio",
-              "data-user-type": "0"
-            }
-          }),
-          _vm._v(" "),
-          _c("span")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "sym-radio-container" }, [
-          _c("label", [_vm._v("Backoffice user and recipient")]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "sym-input",
-            attrs: {
-              name: "sym-user-type",
-              type: "radio",
-              "data-user-type": "2"
-            }
-          }),
-          _vm._v(" "),
-          _c("span")
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "sym-form-group sym-form-group-user",
-        attrs: { "data-form": "user-roles" }
-      },
-      [
-        _c("div", { staticClass: "sym-select-container" }, [
-          _c("label", [_vm._v("Select roles")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group symmetryk-loading-block" }, [
-            _c("span", { staticClass: "multiselect-native-select" }, [
-              _c(
-                "select",
-                {
-                  staticClass: "sym-select-user-roles",
-                  attrs: { name: "sym-select-user-roles", multiple: "multiple" }
-                },
-                [
-                  _c("option", { attrs: { value: "other" } }, [
-                    _vm._v("-- Custom permissions --")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "option",
-                    {
-                      attrs: {
-                        "data-permissions": "audit.full",
-                        value: "15",
-                        "data-time-boxed": "0"
-                      }
-                    },
-                    [_vm._v("Audit Trail Role")]
-                  ),
-                  _c(
-                    "option",
-                    {
-                      attrs: {
-                        "data-permissions":
-                          "recipients.basic,recipients.forcesync,recipients.screenshot,recipients.email,briefcases.create,briefcases.update,briefcases.delete,administration.bouser_create,administration.bouser_update,administration.bouser_delete,administration.bouser_authorize,administration.recipient_create,administration.recipient_update,administration.recipient_delete,administration.recipient_authorize,administration.role_create,administration.role_update,administration.role_delete,assets.full,tracking.full,settings.full,360.full,idialog.full,regulatory.senddocument,regulatory.validatedocument,survey.full,zinc.full,veeva.import,veeva.export,veeva.publishinapprovaldocs",
-                        value: "6",
-                        "data-time-boxed": "0"
-                      }
-                    },
-                    [_vm._v("master role")]
-                  ),
-                  _c(
-                    "option",
-                    {
-                      attrs: {
-                        "data-permissions": "orders.full",
-                        value: "16",
-                        "data-time-boxed": "0"
-                      }
-                    },
-                    [_vm._v("Order Role")]
-                  ),
-                  _c(
-                    "option",
-                    {
-                      attrs: {
-                        "data-permissions":
-                          "recipients.basic,recipients.forcesync,recipients.screenshot,recipients.email,briefcases.create,briefcases.update,briefcases.delete,assets.full,tracking.full,settings.full,360.full,idialog.full,regulatory.senddocument,regulatory.validatedocument,survey.full,zinc.full,veeva.import,veeva.export,veeva.publishinapprovaldocs,regulatory.reviewdocument",
-                        value: "5",
-                        "data-time-boxed": "0"
-                      }
-                    },
-                    [_vm._v("pm role")]
-                  ),
-                  _c(
-                    "option",
-                    {
-                      attrs: {
-                        "data-permissions":
-                          "assets.full,regulatory.senddocument,regulatory.validatedocument,regulatory.reviewdocument",
-                        value: "12",
-                        "data-time-boxed": "0"
-                      }
-                    },
-                    [_vm._v("Regulatory full")]
-                  ),
-                  _c(
-                    "option",
-                    {
-                      attrs: {
-                        "data-permissions": "assets.full",
-                        value: "14",
-                        "data-time-boxed": "1",
-                        "data-dates":
-                          "Start date : 2016-01-07</br>End date : 2020-10-07"
-                      }
-                    },
-                    [_vm._v("Time boxed current role")]
-                  ),
-                  _c(
-                    "option",
-                    {
-                      attrs: {
-                        "data-permissions":
-                          "briefcases.create,briefcases.update,assets.full",
-                        value: "13",
-                        "data-time-boxed": "1",
-                        "data-dates":
-                          "Start date : 2020-01-07</br>End date : 2020-01-07"
-                      }
-                    },
-                    [_vm._v("Time boxed futur role")]
-                  )
-                ]
-              ),
-              _c("div", { staticClass: "btn-group" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "multiselect dropdown-toggle btn btn-default",
-                    attrs: {
-                      type: "button",
-                      "data-toggle": "dropdown",
-                      title: "None selected"
-                    }
-                  },
-                  [
-                    _c("span", { staticClass: "multiselect-selected-text" }, [
-                      _vm._v("None selected")
-                    ]),
-                    _vm._v(" "),
-                    _c("b", { staticClass: "caret" })
-                  ]
-                ),
-                _c(
-                  "ul",
-                  { staticClass: "multiselect-container dropdown-menu" },
-                  [
-                    _c(
-                      "li",
-                      {
-                        staticClass: "multiselect-item multiselect-filter",
-                        attrs: { value: "0" }
-                      },
-                      [
-                        _c("div", { staticClass: "input-group" }, [
-                          _c("span", { staticClass: "input-group-addon" }, [
-                            _c("i", {
-                              staticClass: "glyphicon glyphicon-search"
-                            })
-                          ]),
-                          _c("input", {
-                            staticClass: "form-control multiselect-search",
-                            attrs: { type: "text", placeholder: "Search" }
-                          }),
-                          _c("span", { staticClass: "input-group-btn" }, [
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "btn btn-default multiselect-clear-filter",
-                                attrs: { type: "button" }
-                              },
-                              [
-                                _c("i", {
-                                  staticClass:
-                                    "glyphicon glyphicon-remove-circle"
-                                })
-                              ]
-                            )
-                          ])
-                        ])
-                      ]
-                    ),
-                    _c("li", [
-                      _c("a", { attrs: { tabindex: "0" } }, [
-                        _c("label", { staticClass: "checkbox" }, [
-                          _c("input", {
-                            attrs: { type: "checkbox", value: "other" }
-                          }),
-                          _vm._v(" -- Custom permissions --")
-                        ])
-                      ])
-                    ]),
-                    _c("li", [
-                      _c("a", { attrs: { tabindex: "0" } }, [
-                        _c("label", { staticClass: "checkbox" }, [
-                          _c("input", {
-                            attrs: { type: "checkbox", value: "15" }
-                          }),
-                          _vm._v(" Audit Trail Role")
-                        ])
-                      ])
-                    ]),
-                    _c("li", [
-                      _c("a", { attrs: { tabindex: "0" } }, [
-                        _c("label", { staticClass: "checkbox" }, [
-                          _c("input", {
-                            attrs: { type: "checkbox", value: "6" }
-                          }),
-                          _vm._v(" master role")
-                        ])
-                      ])
-                    ]),
-                    _c("li", [
-                      _c("a", { attrs: { tabindex: "0" } }, [
-                        _c("label", { staticClass: "checkbox" }, [
-                          _c("input", {
-                            attrs: { type: "checkbox", value: "16" }
-                          }),
-                          _vm._v(" Order Role")
-                        ])
-                      ])
-                    ]),
-                    _c("li", [
-                      _c("a", { attrs: { tabindex: "0" } }, [
-                        _c("label", { staticClass: "checkbox" }, [
-                          _c("input", {
-                            attrs: { type: "checkbox", value: "5" }
-                          }),
-                          _vm._v(" pm role")
-                        ])
-                      ])
-                    ]),
-                    _c("li", [
-                      _c("a", { attrs: { tabindex: "0" } }, [
-                        _c("label", { staticClass: "checkbox" }, [
-                          _c("input", {
-                            attrs: { type: "checkbox", value: "12" }
-                          }),
-                          _vm._v(" Regulatory full")
-                        ])
-                      ])
-                    ]),
-                    _c("li", [
-                      _c("a", { attrs: { tabindex: "0" } }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "checkbox",
-                            attrs: {
-                              "aria-hidden": "true",
-                              "data-html": "true",
-                              "data-toggle": "tooltip",
-                              "data-placement": "left",
-                              "data-original-title":
-                                "Start date : 2016-01-07</br>End date : 2020-10-07"
-                            }
-                          },
-                          [
-                            _c("i", {
-                              staticClass: "fa fa-clock-o role-icon-time-boxed"
-                            }),
-                            _c("input", {
-                              attrs: { type: "checkbox", value: "14" }
-                            }),
-                            _vm._v(" Time boxed current role")
-                          ]
-                        )
-                      ])
-                    ]),
-                    _c("li", [
-                      _c("a", { attrs: { tabindex: "0" } }, [
-                        _c(
-                          "label",
-                          {
-                            staticClass: "checkbox",
-                            attrs: {
-                              "aria-hidden": "true",
-                              "data-html": "true",
-                              "data-toggle": "tooltip",
-                              "data-placement": "left",
-                              "data-original-title":
-                                "Start date : 2020-01-07</br>End date : 2020-01-07"
-                            }
-                          },
-                          [
-                            _c("i", {
-                              staticClass: "fa fa-clock-o role-icon-time-boxed"
-                            }),
-                            _c("input", {
-                              attrs: { type: "checkbox", value: "13" }
-                            }),
-                            _vm._v(" Time boxed futur role")
-                          ]
-                        )
-                      ])
-                    ])
-                  ]
-                )
-              ])
-            ])
-          ])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "sym-form-group sym-form-group-user",
-        attrs: { "data-form": "user-permissions" }
-      },
-      [
-        _c("h2", { staticClass: "sym-form-group-title" }, [
-          _vm._v("Module and permissions")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "sym-tab-header" }, [
-          _c("div", { staticClass: "sym-tab-header-tabs" }, [
-            _c(
-              "div",
-              {
-                staticClass: "sym-tab-header-tab sym-tab-header-tab-active",
-                attrs: { "data-tab-target": "module-basic" }
-              },
-              [_c("p", [_vm._v("Basic")])]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "sym-tab-header-tab",
-                attrs: { "data-tab-target": "module-optional" }
-              },
-              [_c("p", [_vm._v("Optional")])]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "sym-tab-body" }, [
-          _c(
-            "div",
-            {
-              staticClass: "sym-tab-body-block sym-tab-body-block-active",
-              attrs: { "data-tab": "module-basic" }
-            },
-            [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "sym-table sym-table-small sym-table-module-permission",
-                  attrs: { "data-content": "basic" }
-                },
-                [
-                  _c("div", { staticClass: "sym-table-header" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "sym-table-column sym-table-column-25 sym-table-column-l",
-                        attrs: { "data-column": "module_name" }
-                      },
-                      [_c("p", [_vm._v("Module")])]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "sym-table-column sym-table-column-75 sym-table-column-l",
-                        attrs: { "data-column": "module_permissions" }
-                      },
-                      [_c("p", [_vm._v("Permissions")])]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "sym-table-items" }, [
-                    _c("div", { staticClass: "sym-table-item" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-25 sym-table-column-l",
-                          attrs: { "data-column": "module_name" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "sym-check-container sym-check-container-principle"
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-key": "recipients"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("Recipients")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-75 sym-table-column-l",
-                          attrs: { "data-column": "module_permissions" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "4",
-                                      "data-permission-key": "recipients.basic",
-                                      "data-permission-parent": "recipients"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("basic")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "5",
-                                      "data-permission-key":
-                                        "recipients.forcesync",
-                                      "data-permission-parent": "recipients"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("force sync")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "6",
-                                      "data-permission-key":
-                                        "recipients.screenshot",
-                                      "data-permission-parent": "recipients"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("screenshot")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "7",
-                                      "data-permission-key": "recipients.email",
-                                      "data-permission-parent": "recipients"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("email")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "sym-table-item" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-25 sym-table-column-l",
-                          attrs: { "data-column": "module_name" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "sym-check-container sym-check-container-principle"
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-key": "briefcases"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("Briefcases")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-75 sym-table-column-l",
-                          attrs: { "data-column": "module_permissions" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "12",
-                                      "data-permission-key":
-                                        "briefcases.create",
-                                      "data-permission-parent": "briefcases"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("create")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "13",
-                                      "data-permission-key":
-                                        "briefcases.update",
-                                      "data-permission-parent": "briefcases"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("update")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "14",
-                                      "data-permission-key":
-                                        "briefcases.delete",
-                                      "data-permission-parent": "briefcases"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("delete")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "sym-table-item" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-25 sym-table-column-l",
-                          attrs: { "data-column": "module_name" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "sym-check-container sym-check-container-principle"
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-key": "administration"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("Administration")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-75 sym-table-column-l",
-                          attrs: { "data-column": "module_permissions" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "sym-check-container sym-check-container-principle",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "undefined",
-                                      "data-permission-key":
-                                        "administration.bouser",
-                                      "data-permission-parent": "administration"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("BO user")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "38",
-                                      "data-permission-key":
-                                        "administration.bouser_create",
-                                      "data-permission-parent":
-                                        "administration.bouser"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("create")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "39",
-                                      "data-permission-key":
-                                        "administration.bouser_update",
-                                      "data-permission-parent":
-                                        "administration.bouser"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("update")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "40",
-                                      "data-permission-key":
-                                        "administration.bouser_delete",
-                                      "data-permission-parent":
-                                        "administration.bouser"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("delete")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "41",
-                                      "data-permission-key":
-                                        "administration.bouser_authorize",
-                                      "data-permission-parent":
-                                        "administration.bouser"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("activate/deactivate")])
-                                ]
-                              )
-                            ]
-                          ),
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "sym-check-container sym-check-container-principle",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "undefined",
-                                      "data-permission-key":
-                                        "administration.recipient",
-                                      "data-permission-parent": "administration"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("Recipient")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "42",
-                                      "data-permission-key":
-                                        "administration.recipient_create",
-                                      "data-permission-parent":
-                                        "administration.recipient"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("create")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "43",
-                                      "data-permission-key":
-                                        "administration.recipient_update",
-                                      "data-permission-parent":
-                                        "administration.recipient"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("update")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "44",
-                                      "data-permission-key":
-                                        "administration.recipient_delete",
-                                      "data-permission-parent":
-                                        "administration.recipient"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("delete")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "45",
-                                      "data-permission-key":
-                                        "administration.recipient_authorize",
-                                      "data-permission-parent":
-                                        "administration.recipient"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("activate/deactivate")])
-                                ]
-                              )
-                            ]
-                          ),
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "sym-check-container sym-check-container-principle",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "undefined",
-                                      "data-permission-key":
-                                        "administration.role",
-                                      "data-permission-parent": "administration"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("Role")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "46",
-                                      "data-permission-key":
-                                        "administration.role_create",
-                                      "data-permission-parent":
-                                        "administration.role"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("create")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "47",
-                                      "data-permission-key":
-                                        "administration.role_update",
-                                      "data-permission-parent":
-                                        "administration.role"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("update")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "48",
-                                      "data-permission-key":
-                                        "administration.role_delete",
-                                      "data-permission-parent":
-                                        "administration.role"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("delete")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "sym-table-item" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-25 sym-table-column-l",
-                          attrs: { "data-column": "module_name" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "sym-check-container sym-check-container-principle"
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-key": "assets"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("My Assets")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-75 sym-table-column-l",
-                          attrs: { "data-column": "module_permissions" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c("p", { staticStyle: { display: "block" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "none" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "18",
-                                      "data-permission-key": "assets.full",
-                                      "data-permission-parent": "assets"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("full")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "sym-tab-body-block sym-tab-body-block",
-              attrs: { "data-tab": "module-optional" }
-            },
-            [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "sym-table sym-table-small sym-table-module-permission",
-                  attrs: { "data-content": "optional" }
-                },
-                [
-                  _c("div", { staticClass: "sym-table-header" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "sym-table-column sym-table-column-25 sym-table-column-l",
-                        attrs: { "data-column": "module_name" }
-                      },
-                      [_c("p", [_vm._v("Module")])]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "sym-table-column sym-table-column-75 sym-table-column-l",
-                        attrs: { "data-column": "module_permissions" }
-                      },
-                      [_c("p", [_vm._v("Permissions")])]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "sym-table-items" }, [
-                    _c("div", { staticClass: "sym-table-item" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-25 sym-table-column-l",
-                          attrs: { "data-column": "module_name" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "sym-check-container sym-check-container-principle"
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-key": "tracking"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("Usage Tracking")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-75 sym-table-column-l",
-                          attrs: { "data-column": "module_permissions" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c("p", { staticStyle: { display: "block" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "none" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "19",
-                                      "data-permission-key": "tracking.full",
-                                      "data-permission-parent": "tracking"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("full")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "sym-table-item" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-25 sym-table-column-l",
-                          attrs: { "data-column": "module_name" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "sym-check-container sym-check-container-principle"
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-key": "settings"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("Settings")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-75 sym-table-column-l",
-                          attrs: { "data-column": "module_permissions" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c("p", { staticStyle: { display: "block" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "none" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "23",
-                                      "data-permission-key": "settings.full",
-                                      "data-permission-parent": "settings"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("full")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "sym-table-item" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-25 sym-table-column-l",
-                          attrs: { "data-column": "module_name" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "sym-check-container sym-check-container-principle"
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-key": "360"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("360")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-75 sym-table-column-l",
-                          attrs: { "data-column": "module_permissions" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c("p", { staticStyle: { display: "block" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "none" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "24",
-                                      "data-permission-key": "360.full",
-                                      "data-permission-parent": "360"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("full")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "sym-table-item" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-25 sym-table-column-l",
-                          attrs: { "data-column": "module_name" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "sym-check-container sym-check-container-principle"
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-key": "idialog"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("Dialog")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-75 sym-table-column-l",
-                          attrs: { "data-column": "module_permissions" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c("p", { staticStyle: { display: "block" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "none" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "25",
-                                      "data-permission-key": "idialog.full",
-                                      "data-permission-parent": "idialog"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("full")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "sym-table-item" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-25 sym-table-column-l",
-                          attrs: { "data-column": "module_name" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "sym-check-container sym-check-container-principle"
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-key": "regulatory"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("Regulatory")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-75 sym-table-column-l",
-                          attrs: { "data-column": "module_permissions" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "26",
-                                      "data-permission-key":
-                                        "regulatory.senddocument",
-                                      "data-permission-parent": "regulatory"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("send document")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "27",
-                                      "data-permission-key":
-                                        "regulatory.validatedocument",
-                                      "data-permission-parent": "regulatory"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("validate document")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "35",
-                                      "data-permission-key":
-                                        "regulatory.reviewdocument",
-                                      "data-permission-parent": "regulatory"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("review document")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "sym-table-item" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-25 sym-table-column-l",
-                          attrs: { "data-column": "module_name" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "sym-check-container sym-check-container-principle"
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-key": "survey"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("Survey")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-75 sym-table-column-l",
-                          attrs: { "data-column": "module_permissions" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c("p", { staticStyle: { display: "block" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "none" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "28",
-                                      "data-permission-key": "survey.full",
-                                      "data-permission-parent": "survey"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("full")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "sym-table-item" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-25 sym-table-column-l",
-                          attrs: { "data-column": "module_name" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "sym-check-container sym-check-container-principle"
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-key": "zinc"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("Zinc")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-75 sym-table-column-l",
-                          attrs: { "data-column": "module_permissions" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c("p", { staticStyle: { display: "block" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "none" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "31",
-                                      "data-permission-key": "zinc.full",
-                                      "data-permission-parent": "zinc"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("full")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "sym-table-item" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-25 sym-table-column-l",
-                          attrs: { "data-column": "module_name" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "sym-check-container sym-check-container-principle"
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-key": "veeva"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("Veeva")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-75 sym-table-column-l",
-                          attrs: { "data-column": "module_permissions" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "32",
-                                      "data-permission-key": "veeva.import",
-                                      "data-permission-parent": "veeva"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("import")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "33",
-                                      "data-permission-key": "veeva.export",
-                                      "data-permission-parent": "veeva"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("export")])
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("p", { staticStyle: { display: "none" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "inline-block" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "34",
-                                      "data-permission-key":
-                                        "veeva.publishinapprovaldocs",
-                                      "data-permission-parent": "veeva"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [
-                                    _vm._v("publish in approval docs")
-                                  ])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "sym-table-item" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-25 sym-table-column-l",
-                          attrs: { "data-column": "module_name" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "sym-check-container sym-check-container-principle"
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-key": "audit"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("Audit Trail")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-75 sym-table-column-l",
-                          attrs: { "data-column": "module_permissions" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c("p", { staticStyle: { display: "block" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "none" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "36",
-                                      "data-permission-key": "audit.full",
-                                      "data-permission-parent": "audit"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("full")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "sym-table-item" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-25 sym-table-column-l",
-                          attrs: { "data-column": "module_name" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "sym-check-container sym-check-container-principle"
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-key": "orders"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("Orders")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "sym-table-column sym-table-column-75 sym-table-column-l",
-                          attrs: { "data-column": "module_permissions" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            { staticClass: "sym-permissions-wrapper" },
-                            [
-                              _c("p", { staticStyle: { display: "block" } }, [
-                                _vm._v("-")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "sym-check-container ",
-                                  staticStyle: { display: "none" }
-                                },
-                                [
-                                  _c("input", {
-                                    staticClass:
-                                      "sym-input sym-input-permissions",
-                                    attrs: {
-                                      type: "checkbox",
-                                      "data-permission-id": "37",
-                                      "data-permission-key": "orders.full",
-                                      "data-permission-parent": "orders"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span"),
-                                  _vm._v(" "),
-                                  _c("label", [_vm._v("full")])
-                                ]
-                              )
-                            ]
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                ]
-              )
-            ]
-          )
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -34883,1000 +32000,6 @@ var staticRenderFns = [
         )
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "sym-table-item-details-container-wrapper",
-        attrs: { "data-form": "user-devices" }
-      },
-      [
-        _c(
-          "div",
-          {
-            staticClass: "sym-form-group sym-form-group-user",
-            attrs: { "data-form": "user-devices" }
-          },
-          [
-            _c("div", { staticClass: "sym-form-group-header" }, [
-              _c("h3", [_vm._v("Devices")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "sym-form-group-body" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "sym-table sym-table-small sym-table-user-devices",
-                  attrs: { id: "sym-table-devices", "data-content": "devices" }
-                },
-                [
-                  _c("div", { staticClass: "sym-table-header" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "sym-table-column sym-table-column-20 sym-table-column-l",
-                        attrs: {
-                          "data-column": "device_name",
-                          sort: "",
-                          "sort-active": "",
-                          "data-sort-type": "device_name",
-                          "data-sort-by": "asc"
-                        }
-                      },
-                      [
-                        _c("p", { staticClass: "sym-table-sort-active-asc" }, [
-                          _vm._v("Name"),
-                          _c("span", {
-                            staticClass: "icon-arrow-down-2",
-                            attrs: { "data-sort": "asc" }
-                          }),
-                          _c("span", {
-                            staticClass: "icon-arrow-down-2",
-                            attrs: { "data-sort": "desc" }
-                          })
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "sym-table-column sym-table-column-10 sym-table-column-l",
-                        attrs: {
-                          "data-column": "ios_version",
-                          sort: "",
-                          "data-sort-type": "ios_version",
-                          "data-sort-by": "asc"
-                        }
-                      },
-                      [
-                        _c("p", [
-                          _vm._v("iOS version"),
-                          _c("span", {
-                            staticClass: "icon-arrow-down-2",
-                            attrs: { "data-sort": "asc" }
-                          }),
-                          _c("span", {
-                            staticClass: "icon-arrow-down-2",
-                            attrs: { "data-sort": "desc" }
-                          })
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "sym-table-column sym-table-column-15 sym-table-column-l",
-                        attrs: {
-                          "data-column": "sym_version",
-                          sort: "",
-                          "data-sort-type": "sym_version",
-                          "data-sort-by": "asc"
-                        }
-                      },
-                      [
-                        _c("p", [
-                          _vm._v("Symmetryk version"),
-                          _c("span", {
-                            staticClass: "icon-arrow-down-2",
-                            attrs: { "data-sort": "asc" }
-                          }),
-                          _c("span", {
-                            staticClass: "icon-arrow-down-2",
-                            attrs: { "data-sort": "desc" }
-                          })
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "sym-table-column sym-table-column-20 sym-table-column-l",
-                        attrs: {
-                          "data-column": "last_login",
-                          sort: "",
-                          "data-sort-type": "last_login",
-                          "data-sort-by": "asc"
-                        }
-                      },
-                      [
-                        _c("p", [
-                          _vm._v("Last login"),
-                          _c("span", {
-                            staticClass: "icon-arrow-down-2",
-                            attrs: { "data-sort": "asc" }
-                          }),
-                          _c("span", {
-                            staticClass: "icon-arrow-down-2",
-                            attrs: { "data-sort": "desc" }
-                          })
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "sym-table-column sym-table-column-10",
-                        attrs: {
-                          "data-column": "connected",
-                          sort: "",
-                          "data-sort-type": "connected",
-                          "data-sort-by": "asc"
-                        }
-                      },
-                      [
-                        _c("p", [
-                          _vm._v("Connected"),
-                          _c("span", {
-                            staticClass: "icon-arrow-down-2",
-                            attrs: { "data-sort": "asc" }
-                          }),
-                          _c("span", {
-                            staticClass: "icon-arrow-down-2",
-                            attrs: { "data-sort": "desc" }
-                          })
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "sym-table-column sym-table-column-15",
-                        attrs: {
-                          "data-column": "authorized",
-                          sort: "",
-                          "data-sort-type": "authorized",
-                          "data-sort-by": "asc"
-                        }
-                      },
-                      [
-                        _c("p", [
-                          _vm._v("Authorized"),
-                          _c("span", {
-                            staticClass: "icon-arrow-down-2",
-                            attrs: { "data-sort": "asc" }
-                          }),
-                          _c("span", {
-                            staticClass: "icon-arrow-down-2",
-                            attrs: { "data-sort": "desc" }
-                          })
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "sym-table-column sym-table-column-10 sym-table-column-r",
-                        attrs: { "data-column": "actions" }
-                      },
-                      [_c("p")]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "sym-table-items" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "sym-table-item sym-table-item-fake",
-                        attrs: { "data-id": "", "data-device-id": "" }
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-20 sym-table-column-l",
-                            attrs: { "data-column": "device_name" }
-                          },
-                          [_c("p")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-10 sym-table-column-l",
-                            attrs: { "data-column": "ios_version" }
-                          },
-                          [_c("p")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-15 sym-table-column-l",
-                            attrs: { "data-column": "sym-version" }
-                          },
-                          [_c("p")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-20 sym-table-column-l",
-                            attrs: { "data-column": "last-login" }
-                          },
-                          [_c("p")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-10 sym-table-column-device-connected-",
-                            attrs: { "data-column": "connected" }
-                          },
-                          [
-                            _c("p", [
-                              _c("span", {
-                                staticClass: "sym-pastil",
-                                attrs: {
-                                  "data-toggle": "tooltip",
-                                  "data-placement": "top",
-                                  "data-original-title": ""
-                                }
-                              })
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "sym-table-column sym-table-column-15",
-                            attrs: { "data-column": "authorized" }
-                          },
-                          [
-                            _c(
-                              "p",
-                              { staticClass: "sym-custom-switchery-wrapper" },
-                              [
-                                _vm._v(
-                                  ' =""="" data-switchery="true" style="display: none;">'
-                                ),
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass: "switchery",
-                                    staticStyle: {
-                                      "box-shadow":
-                                        "rgb(223, 223, 223) 0px 0px 0px 0px inset",
-                                      "border-color": "rgb(223, 223, 223)",
-                                      transition: "border 0.4s, box-shadow 0.4s"
-                                    }
-                                  },
-                                  [
-                                    _c("small", {
-                                      staticStyle: {
-                                        left: "0px",
-                                        transition: "left 0.2s"
-                                      }
-                                    })
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-10 sym-table-column-r",
-                            attrs: { "data-column": "actions" }
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "sym-btn sym-btn-delete",
-                                attrs: { "data-action": "device-delete" }
-                              },
-                              [_c("p", [_vm._v("Delete")])]
-                            )
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "sym-table-item sym-table-item-fake",
-                        attrs: { "data-id": "", "data-device-id": "" }
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-20 sym-table-column-l",
-                            attrs: { "data-column": "device_name" }
-                          },
-                          [_c("p")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-10 sym-table-column-l",
-                            attrs: { "data-column": "ios_version" }
-                          },
-                          [_c("p")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-15 sym-table-column-l",
-                            attrs: { "data-column": "sym-version" }
-                          },
-                          [_c("p")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-20 sym-table-column-l",
-                            attrs: { "data-column": "last-login" }
-                          },
-                          [_c("p")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-10 sym-table-column-device-connected-",
-                            attrs: { "data-column": "connected" }
-                          },
-                          [
-                            _c("p", [
-                              _c("span", {
-                                staticClass: "sym-pastil",
-                                attrs: {
-                                  "data-toggle": "tooltip",
-                                  "data-placement": "top",
-                                  "data-original-title": ""
-                                }
-                              })
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "sym-table-column sym-table-column-15",
-                            attrs: { "data-column": "authorized" }
-                          },
-                          [
-                            _c(
-                              "p",
-                              { staticClass: "sym-custom-switchery-wrapper" },
-                              [
-                                _vm._v(
-                                  ' =""="" data-switchery="true" style="display: none;">'
-                                ),
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass: "switchery",
-                                    staticStyle: {
-                                      "box-shadow":
-                                        "rgb(223, 223, 223) 0px 0px 0px 0px inset",
-                                      "border-color": "rgb(223, 223, 223)",
-                                      transition: "border 0.4s, box-shadow 0.4s"
-                                    }
-                                  },
-                                  [
-                                    _c("small", {
-                                      staticStyle: {
-                                        left: "0px",
-                                        transition: "left 0.2s"
-                                      }
-                                    })
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-10 sym-table-column-r",
-                            attrs: { "data-column": "actions" }
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "sym-btn sym-btn-delete",
-                                attrs: { "data-action": "device-delete" }
-                              },
-                              [_c("p", [_vm._v("Delete")])]
-                            )
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "sym-table-item ",
-                        attrs: { "data-id": "4", "data-device-id": "4" }
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-20 sym-table-column-l",
-                            attrs: { "data-column": "device_name" }
-                          },
-                          [_c("p", [_vm._v("iPad 2 de NSM1")])]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-10 sym-table-column-l",
-                            attrs: { "data-column": "ios_version" }
-                          },
-                          [_c("p", [_vm._v("11.1")])]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-15 sym-table-column-l",
-                            attrs: { "data-column": "sym-version" }
-                          },
-                          [_c("p", [_vm._v("2.1.4 (81)")])]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-20 sym-table-column-l",
-                            attrs: { "data-column": "last-login" }
-                          },
-                          [_c("p", [_vm._v("2015-05-13 at 11:40")])]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-10 sym-table-column-device-connected-1",
-                            attrs: { "data-column": "connected" }
-                          },
-                          [
-                            _c("p", [
-                              _c("span", {
-                                staticClass: "sym-pastil",
-                                attrs: {
-                                  "data-toggle": "tooltip",
-                                  "data-placement": "top",
-                                  "data-original-title": "Device connected"
-                                }
-                              })
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "sym-table-column sym-table-column-15",
-                            attrs: { "data-column": "authorized" }
-                          },
-                          [
-                            _c(
-                              "p",
-                              { staticClass: "sym-custom-switchery-wrapper" },
-                              [
-                                _c("input", {
-                                  staticClass: "sym-custom-switchery",
-                                  staticStyle: { display: "none" },
-                                  attrs: {
-                                    type: "checkbox",
-                                    checked: "",
-                                    "data-switchery": "true"
-                                  }
-                                }),
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass: "switchery",
-                                    staticStyle: {
-                                      "background-color": "rgb(33, 150, 243)",
-                                      "border-color": "rgb(33, 150, 243)",
-                                      "box-shadow":
-                                        "rgb(33, 150, 243) 0px 0px 0px 16px inset",
-                                      transition:
-                                        "border 0.4s, box-shadow 0.4s, background-color 1.2s"
-                                    }
-                                  },
-                                  [
-                                    _c("small", {
-                                      staticStyle: {
-                                        left: "20px",
-                                        transition: "left 0.2s"
-                                      }
-                                    })
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-10 sym-table-column-r",
-                            attrs: { "data-column": "actions" }
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "sym-btn sym-btn-delete",
-                                attrs: { "data-action": "device-delete" }
-                              },
-                              [_c("p", [_vm._v("Delete")])]
-                            )
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "sym-table-item ",
-                        attrs: { "data-id": "5", "data-device-id": "5" }
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-20 sym-table-column-l",
-                            attrs: { "data-column": "device_name" }
-                          },
-                          [_c("p", [_vm._v("iPad 2 de NSM2")])]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-10 sym-table-column-l",
-                            attrs: { "data-column": "ios_version" }
-                          },
-                          [_c("p", [_vm._v("7.1.2")])]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-15 sym-table-column-l",
-                            attrs: { "data-column": "sym-version" }
-                          },
-                          [_c("p", [_vm._v("2.4.5 (102)")])]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-20 sym-table-column-l",
-                            attrs: { "data-column": "last-login" }
-                          },
-                          [_c("p", [_vm._v("2015-05-13 at 11:40")])]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-10 sym-table-column-device-connected-0",
-                            attrs: { "data-column": "connected" }
-                          },
-                          [
-                            _c("p", [
-                              _c("span", {
-                                staticClass: "sym-pastil",
-                                attrs: {
-                                  "data-toggle": "tooltip",
-                                  "data-placement": "top",
-                                  "data-original-title": "Device not connected"
-                                }
-                              })
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "sym-table-column sym-table-column-15",
-                            attrs: { "data-column": "authorized" }
-                          },
-                          [
-                            _c(
-                              "p",
-                              { staticClass: "sym-custom-switchery-wrapper" },
-                              [
-                                _c("input", {
-                                  staticClass: "sym-custom-switchery",
-                                  staticStyle: { display: "none" },
-                                  attrs: {
-                                    type: "checkbox",
-                                    checked: "",
-                                    "data-switchery": "true"
-                                  }
-                                }),
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass: "switchery",
-                                    staticStyle: {
-                                      "background-color": "rgb(33, 150, 243)",
-                                      "border-color": "rgb(33, 150, 243)",
-                                      "box-shadow":
-                                        "rgb(33, 150, 243) 0px 0px 0px 16px inset",
-                                      transition:
-                                        "border 0.4s, box-shadow 0.4s, background-color 1.2s"
-                                    }
-                                  },
-                                  [
-                                    _c("small", {
-                                      staticStyle: {
-                                        left: "20px",
-                                        transition: "left 0.2s"
-                                      }
-                                    })
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-10 sym-table-column-r",
-                            attrs: { "data-column": "actions" }
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "sym-btn sym-btn-delete",
-                                attrs: { "data-action": "device-delete" }
-                              },
-                              [_c("p", [_vm._v("Delete")])]
-                            )
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "sym-table-item ",
-                        attrs: { "data-id": "6", "data-device-id": "6" }
-                      },
-                      [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-20 sym-table-column-l",
-                            attrs: { "data-column": "device_name" }
-                          },
-                          [_c("p", [_vm._v("iPad 3 de NSM3")])]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-10 sym-table-column-l",
-                            attrs: { "data-column": "ios_version" }
-                          },
-                          [_c("p", [_vm._v("7.1.2")])]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-15 sym-table-column-l",
-                            attrs: { "data-column": "sym-version" }
-                          },
-                          [_c("p", [_vm._v("-")])]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-20 sym-table-column-l",
-                            attrs: { "data-column": "last-login" }
-                          },
-                          [_c("p", [_vm._v("2015-06-07 at 11:40")])]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-10 sym-table-column-device-connected-1",
-                            attrs: { "data-column": "connected" }
-                          },
-                          [
-                            _c("p", [
-                              _c("span", {
-                                staticClass: "sym-pastil",
-                                attrs: {
-                                  "data-toggle": "tooltip",
-                                  "data-placement": "top",
-                                  "data-original-title": "Device connected"
-                                }
-                              })
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "sym-table-column sym-table-column-15",
-                            attrs: { "data-column": "authorized" }
-                          },
-                          [
-                            _c(
-                              "p",
-                              { staticClass: "sym-custom-switchery-wrapper" },
-                              [
-                                _vm._v(
-                                  ' =""="" data-switchery="true" style="display: none;">'
-                                ),
-                                _c(
-                                  "span",
-                                  {
-                                    staticClass: "switchery",
-                                    staticStyle: {
-                                      "box-shadow":
-                                        "rgb(223, 223, 223) 0px 0px 0px 0px inset",
-                                      "border-color": "rgb(223, 223, 223)",
-                                      transition: "border 0.4s, box-shadow 0.4s"
-                                    }
-                                  },
-                                  [
-                                    _c("small", {
-                                      staticStyle: {
-                                        left: "0px",
-                                        transition: "left 0.2s"
-                                      }
-                                    })
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "sym-table-column sym-table-column-10 sym-table-column-r",
-                            attrs: { "data-column": "actions" }
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "sym-btn sym-btn-delete",
-                                attrs: { "data-action": "device-delete" }
-                              },
-                              [_c("p", [_vm._v("Delete")])]
-                            )
-                          ]
-                        )
-                      ]
-                    )
-                  ])
-                ]
-              )
-            ])
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "sym-table-item-details-container-wrapper",
-        attrs: { "data-form": "user-data" }
-      },
-      [
-        _c(
-          "div",
-          {
-            staticClass: "sym-form-group sym-form-group-user",
-            attrs: { "data-form": "user-data" }
-          },
-          [
-            _c("div", { staticClass: "sym-form-group-header" }, [
-              _c("h3", [_vm._v("Delete recipient's data")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "sym-form-group-body" }, [
-              _c("div", { staticClass: "sym-reset-rep-data-options" }, [
-                _c("div", { staticClass: "sym-check-container" }, [
-                  _c("input", {
-                    staticClass: "sym-input sym-input-rep-data",
-                    attrs: { type: "checkbox", "data-action": "reset-device" }
-                  }),
-                  _vm._v(" "),
-                  _c("span"),
-                  _vm._v(" "),
-                  _c("label", [
-                    _vm._v("Devices "),
-                    _c("i", { attrs: { "data-remaining-reset": "2" } }, [
-                      _vm._v(" (2 reset left)")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "sym-check-container" }, [
-                  _c("input", {
-                    staticClass: "sym-input sym-input-rep-data",
-                    attrs: {
-                      type: "checkbox",
-                      "data-action": "reset-briefcase"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("span"),
-                  _vm._v(" "),
-                  _c("label", [_vm._v("Assigned briefcases")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "sym-check-container" }, [
-                  _c("input", {
-                    staticClass: "sym-input sym-input-rep-data",
-                    attrs: { type: "checkbox", "data-action": "reset-dialog" }
-                  }),
-                  _vm._v(" "),
-                  _c("span"),
-                  _vm._v(" "),
-                  _c("label", [_vm._v("Dialog (custom presentations)")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "sym-check-container" }, [
-                  _c("input", {
-                    staticClass: "sym-input sym-input-rep-data",
-                    attrs: { type: "checkbox", "data-action": "reset-tracking" }
-                  }),
-                  _vm._v(" "),
-                  _c("span"),
-                  _vm._v(" "),
-                  _c("label", [_vm._v("Tracking data")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "sym-check-container" }, [
-                  _c("input", {
-                    staticClass: "sym-input sym-input-rep-data",
-                    attrs: {
-                      type: "checkbox",
-                      "data-action": "reset-screenshot"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("span"),
-                  _vm._v(" "),
-                  _c("label", [_vm._v("Screenshots")])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "sym-check-container" }, [
-                  _c("input", {
-                    staticClass: "sym-input sym-input-rep-data",
-                    attrs: { type: "checkbox", "data-action": "reset-survey" }
-                  }),
-                  _vm._v(" "),
-                  _c("span"),
-                  _vm._v(" "),
-                  _c("label", [_vm._v("Surveys")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "sym-form-group sym-form-group-buttons",
-                  attrs: { "data-form": "user-data-button" }
-                },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "sym-btn sym-btn-delete sym-btn-disabled",
-                      attrs: { "data-action": "user-data-delete" }
-                    },
-                    [_c("p", [_vm._v("Delete")])]
-                  )
-                ]
-              )
-            ])
-          ]
-        )
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -35884,12 +32007,12 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-02aac99f", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-4e2e0c5f", module.exports)
   }
 }
 
 /***/ }),
-/* 58 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -35900,7 +32023,10 @@ var render = function() {
     "div",
     {
       staticClass: "sym-table",
-      class: { "sym-table-item-selected": _vm.selectedItem !== null }
+      class: {
+        "sym-table-item-selected": _vm.selectedItem !== null,
+        "sym-table-empty": _vm.users !== null && _vm.users.length <= 0
+      }
     },
     [
       _c("div", { staticClass: "flex justify-end mb-2" }, [
@@ -35924,7 +32050,6 @@ var render = function() {
                   attrs: {
                     version: "1.1",
                     xmlns: "http://www.w3.org/2000/svg",
-                    "xmlns:xlink": "http://www.w3.org/1999/xlink",
                     x: "0px",
                     y: "0px",
                     viewBox: "0 0 52.966 52.966",
@@ -36021,7 +32146,9 @@ var render = function() {
                     {
                       key: i,
                       staticClass: "sym-table-item sym-table-item-selectable",
-                      class: _vm.isSelected(user),
+                      class: {
+                        "sym-table-item-selected": _vm.isSelected(user)
+                      },
                       on: {
                         click: function($event) {
                           _vm.toggleDetails(user)
@@ -36170,12 +32297,12 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-64824784", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-7ac9a204", module.exports)
   }
 }
 
 /***/ }),
-/* 59 */
+/* 64 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

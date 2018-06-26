@@ -1,6 +1,6 @@
 <template>
 	<div class="sym-input-container">
-        <input class="sym-input" :class="{ 'sym-input-empty' : value === '' }" type="text" data-input="first_name" @input="handleInput">
+        <input :type="type" class="sym-input" :class="{ 'sym-input-empty' : value === '' }" data-input="first_name" @input="handleInput">
         <label>{{ label }}
         	<sup v-if="isRequired">*</sup>
         </label>
@@ -9,7 +9,7 @@
 
 <script>
 	export default {
-		props: ['value', 'label', 'isRequired'],
+		props: ['value', 'type', 'label', 'isRequired'],
 		methods: {
 			handleInput(e) {
 				this.$emit('input', e.target.value)
