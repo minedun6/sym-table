@@ -8,27 +8,16 @@
                 <div class="sym-form-group sym-form-group-user" data-form="user-basic">
 
                     <sym-input-text label="First Name" :isRequired="true" v-model="form.first_name" />
-                    
-                    <div class="sym-input-container">
-                        <input class="sym-input" type="text" data-input="last_name">
-                        <label>Last name<sup>*</sup></label>
-                    </div>
-                    <div class="sym-input-container">
-                        <input class="sym-input" type="email" data-input="email">
-                        <label>Email<sup>*</sup></label>
-                    </div>
-                    <div class="sym-input-container">
-                        <input class="sym-input" type="email" data-input="email_confirm">
-                        <label>Re-type email<sup>*</sup></label>
-                    </div>
-                    <div class="sym-input-container">
-                        <input class="sym-input sym-input-empty" type="password" data-input="password">
-                        <label>Password<sup>*</sup> (at least 8 characters)</label>
-                    </div>
-                    <div class="sym-input-container">
-                        <input class="sym-input sym-input-empty" type="password" data-input="password_confirm">
-                        <label>Re-type password<sup>*</sup> (at least 8 characters)</label>
-                    </div>
+
+                    <sym-input-text label="Last Name" :isRequired="true" v-model="form.last_name"/>
+
+                    <sym-input-text label="Email" :isRequired="true" v-model="form.email"/>
+
+                    <sym-input-text label="Re-type Email" :isRequired="true" v-model="form.email_confirm"/>
+
+                    <sym-input-text label="Password (at least 8 caracters)" :isRequired="true" v-model="form.password"/>
+
+                    <sym-input-text label="Re-type Password (at least 8 caracters)" :isRequired="true" v-model="form.password_confirm"/>
                 </div>
 
                 <div class="sym-form-group sym-form-group-user" data-form="user-type">
@@ -958,7 +947,12 @@
         data() {
             return {
                 form: {
-                    first_name: ''
+                    first_name: '',
+                    last_name: '',
+                    email: '',
+                    email_confirm: '',
+                    password: '',
+                    password_confirm: ''
                 }
             }
         },

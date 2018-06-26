@@ -1386,7 +1386,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(54);
+module.exports = __webpack_require__(59);
 
 
 /***/ }),
@@ -12643,7 +12643,7 @@ var normalizeComponent = __webpack_require__(4)
 /* script */
 var __vue_script__ = __webpack_require__(21)
 /* template */
-var __vue_template__ = __webpack_require__(53)
+var __vue_template__ = __webpack_require__(58)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -12660,7 +12660,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/SymTable.vue"
+Component.options.__file = "resources\\assets\\js\\components\\SymTable.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -12669,9 +12669,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7ac9a204", Component.options)
+    hotAPI.createRecord("data-v-64824784", Component.options)
   } else {
-    hotAPI.reload("data-v-7ac9a204", Component.options)
+    hotAPI.reload("data-v-64824784", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -12692,13 +12692,13 @@ var content = __webpack_require__(19);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("2f3b8939", content, false, {});
+var update = __webpack_require__(3)("2254c152", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7ac9a204\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymTable.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7ac9a204\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymTable.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-64824784\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymTable.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-64824784\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymTable.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -30979,7 +30979,7 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-4d3d6584"
+var __vue_scopeId__ = "data-v-11361f78"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -30990,7 +30990,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/FakeItemPlaceHolder.vue"
+Component.options.__file = "resources\\assets\\js\\components\\FakeItemPlaceHolder.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -30999,9 +30999,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4d3d6584", Component.options)
+    hotAPI.createRecord("data-v-11361f78", Component.options)
   } else {
-    hotAPI.reload("data-v-4d3d6584", Component.options)
+    hotAPI.reload("data-v-11361f78", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -31022,13 +31022,13 @@ var content = __webpack_require__(45);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("36e4d787", content, false, {});
+var update = __webpack_require__(3)("638d9ea4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4d3d6584\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FakeItemPlaceHolder.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4d3d6584\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FakeItemPlaceHolder.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-11361f78\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FakeItemPlaceHolder.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-11361f78\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FakeItemPlaceHolder.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -31046,7 +31046,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "/* fake */\n.sym-table-empty .sym-table-item-fake[data-v-4d3d6584] {\n  display: block;\n}\n.sym-table-item-fake.sym-table-item-selected[data-v-4d3d6584] {\n  /*display: block;*/\n}\n.sym-table-item-fake .sym-table-column > p[data-v-4d3d6584] {\n  display: block;\n  height: 10px;\n  width: 20%;\n  background: #f1f1f4;\n  border-radius: 4px;\n  margin: 30px auto !important;\n}\n.sym-table-item-fake .sym-table-column-l > p[data-v-4d3d6584] {\n  margin: 30px 10px !important;\n}\n.sym-table-item-fake .sym-table-column-r > p[data-v-4d3d6584] {\n  margin: 30px 10px !important;\n  float: right;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-avatar[data-v-4d3d6584] {\n  position: relative;\n  float: left;\n  margin: 10px 10px !important;\n  overflow: hidden;\n  width: 50px;\n  height: 50px;\n  border-radius: 25px;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-avatar[data-v-4d3d6584]::before {\n  content: '';\n  position: absolute;\n  top: 11px;\n  left: 15px;\n  width: 20px;\n  height: 20px;\n  border-radius: 10px;\n  background: #fff;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-avatar[data-v-4d3d6584]::after {\n  content: '';\n  position: absolute;\n  top: 27px;\n  left: 8px;\n  width: 35px;\n  height: 40px;\n  border-radius: 18px;\n  background: #fff;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-name[data-v-4d3d6584] {\n  width: 100px;\n  margin: 20px 0 0 60px !important;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-email[data-v-4d3d6584] {\n  width: 160px;\n  margin: 10px 0 0 60px !important;\n}\n@-webkit-keyframes placeHolderShimmer-data-v-4d3d6584 {\n0% {\n    background-position: -468px 0;\n}\n100% {\n    background-position: 468px 0;\n}\n}\n@keyframes placeHolderShimmer-data-v-4d3d6584 {\n0% {\n    background-position: -468px 0;\n}\n100% {\n    background-position: 468px 0;\n}\n}\n", ""]);
+exports.push([module.i, "/* fake */\n.sym-table-empty .sym-table-item-fake[data-v-11361f78] {\n  display: block;\n}\n.sym-table-item-fake.sym-table-item-selected[data-v-11361f78] {\n  /*display: block;*/\n}\n.sym-table-item-fake .sym-table-column > p[data-v-11361f78] {\n  display: block;\n  height: 10px;\n  width: 20%;\n  background: #f1f1f4;\n  border-radius: 4px;\n  margin: 30px auto !important;\n}\n.sym-table-item-fake .sym-table-column-l > p[data-v-11361f78] {\n  margin: 30px 10px !important;\n}\n.sym-table-item-fake .sym-table-column-r > p[data-v-11361f78] {\n  margin: 30px 10px !important;\n  float: right;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-avatar[data-v-11361f78] {\n  position: relative;\n  float: left;\n  margin: 10px 10px !important;\n  overflow: hidden;\n  width: 50px;\n  height: 50px;\n  border-radius: 25px;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-avatar[data-v-11361f78]::before {\n  content: '';\n  position: absolute;\n  top: 11px;\n  left: 15px;\n  width: 20px;\n  height: 20px;\n  border-radius: 10px;\n  background: #fff;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-avatar[data-v-11361f78]::after {\n  content: '';\n  position: absolute;\n  top: 27px;\n  left: 8px;\n  width: 35px;\n  height: 40px;\n  border-radius: 18px;\n  background: #fff;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-name[data-v-11361f78] {\n  width: 100px;\n  margin: 20px 0 0 60px !important;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-email[data-v-11361f78] {\n  width: 160px;\n  margin: 10px 0 0 60px !important;\n}\n@-webkit-keyframes placeHolderShimmer-data-v-11361f78 {\n0% {\n    background-position: -468px 0;\n}\n100% {\n    background-position: 468px 0;\n}\n}\n@keyframes placeHolderShimmer-data-v-11361f78 {\n0% {\n    background-position: -468px 0;\n}\n100% {\n    background-position: 468px 0;\n}\n}\n", ""]);
 
 // exports
 
@@ -31137,7 +31137,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4d3d6584", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-11361f78", module.exports)
   }
 }
 
@@ -31154,7 +31154,7 @@ var normalizeComponent = __webpack_require__(4)
 /* script */
 var __vue_script__ = __webpack_require__(51)
 /* template */
-var __vue_template__ = __webpack_require__(52)
+var __vue_template__ = __webpack_require__(57)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -31171,7 +31171,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/SymItemDetails.vue"
+Component.options.__file = "resources\\assets\\js\\components\\SymItemDetails.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -31180,9 +31180,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4e2e0c5f", Component.options)
+    hotAPI.createRecord("data-v-02aac99f", Component.options)
   } else {
-    hotAPI.reload("data-v-4e2e0c5f", Component.options)
+    hotAPI.reload("data-v-02aac99f", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -31203,13 +31203,13 @@ var content = __webpack_require__(50);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("9d0601b0", content, false, {});
+var update = __webpack_require__(3)("3519cfaa", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4e2e0c5f\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymItemDetails.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4e2e0c5f\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymItemDetails.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-02aac99f\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymItemDetails.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-02aac99f\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymItemDetails.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -31238,19 +31238,8 @@ exports.push([module.i, "/*-----------------------------------------------------
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SymInputText__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SymInputText__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SymInputText___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__SymInputText__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -32200,7 +32189,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             form: {
-                first_name: ''
+                first_name: '',
+                last_name: '',
+                email: '',
+                email_confirm: '',
+                password: '',
+                password_confirm: ''
             }
         };
     },
@@ -32212,6 +32206,154 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(53)
+}
+var normalizeComponent = __webpack_require__(4)
+/* script */
+var __vue_script__ = __webpack_require__(55)
+/* template */
+var __vue_template__ = __webpack_require__(56)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\SymInputText.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5c034407", Component.options)
+  } else {
+    hotAPI.reload("data-v-5c034407", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(54);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("10f39de8", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5c034407\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymInputText.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5c034407\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymInputText.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.sym-input-container {\n  position: relative;\n  margin-top: 10px;\n}\n.sym-input-container input {\n  border: 1px solid #ccced5;\n  color: #525a64;\n  border-radius: 4px;\n  padding: 0 10px;\n  outline: none;\n  font-size: 14px;\n  height: 35px;\n}\n.sym-input-container input.sym-input-error {\n  border: 1px solid #fb7e69 !important;\n}\n.sym-input-container label {\n  position: absolute;\n  top: 8px;\n  left: 5px;\n  padding: 0 5px;\n  color: #ccced5;\n  cursor: text;\n  background-color: #fff;\n  -webkit-transition: all 300ms;\n          transition: all 300ms;\n}\n.sym-input-container input:not(.sym-input-empty) + label,\n.sym-input-container input:focus + label {\n  top: -10px;\n  font-family: 'Lato';\n  font-size: 12px;\n  color: #2196f3;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 55 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['value', 'label', 'isRequired'],
+	methods: {
+		handleInput: function handleInput(e) {
+			this.$emit('input', e.target.value);
+		}
+	}
+});
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "sym-input-container" }, [
+    _c("input", {
+      staticClass: "sym-input",
+      class: { "sym-input-empty": _vm.value === "" },
+      attrs: { type: "text", "data-input": "first_name" },
+      on: { input: _vm.handleInput }
+    }),
+    _vm._v(" "),
+    _c("label", [
+      _vm._v(_vm._s(_vm.label) + "\n        \t"),
+      _vm.isRequired ? _c("sup", [_vm._v("*")]) : _vm._e()
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-5c034407", module.exports)
+  }
+}
+
+/***/ }),
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -32246,109 +32388,87 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _vm._m(0),
+              _c("sym-input-text", {
+                attrs: { label: "Last Name", isRequired: true },
+                model: {
+                  value: _vm.form.last_name,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "last_name", $$v)
+                  },
+                  expression: "form.last_name"
+                }
+              }),
               _vm._v(" "),
-              _vm._m(1),
+              _c("sym-input-text", {
+                attrs: { label: "Email", isRequired: true },
+                model: {
+                  value: _vm.form.email,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "email", $$v)
+                  },
+                  expression: "form.email"
+                }
+              }),
               _vm._v(" "),
-              _vm._m(2),
+              _c("sym-input-text", {
+                attrs: { label: "Re-type Email", isRequired: true },
+                model: {
+                  value: _vm.form.email_confirm,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "email_confirm", $$v)
+                  },
+                  expression: "form.email_confirm"
+                }
+              }),
               _vm._v(" "),
-              _vm._m(3),
+              _c("sym-input-text", {
+                attrs: {
+                  label: "Password (at least 8 caracters)",
+                  isRequired: true
+                },
+                model: {
+                  value: _vm.form.password,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "password", $$v)
+                  },
+                  expression: "form.password"
+                }
+              }),
               _vm._v(" "),
-              _vm._m(4)
+              _c("sym-input-text", {
+                attrs: {
+                  label: "Re-type Password (at least 8 caracters)",
+                  isRequired: true
+                },
+                model: {
+                  value: _vm.form.password_confirm,
+                  callback: function($$v) {
+                    _vm.$set(_vm.form, "password_confirm", $$v)
+                  },
+                  expression: "form.password_confirm"
+                }
+              })
             ],
             1
           ),
           _vm._v(" "),
-          _vm._m(5),
+          _vm._m(0),
           _vm._v(" "),
-          _vm._m(6),
+          _vm._m(1),
           _vm._v(" "),
-          _vm._m(7),
+          _vm._m(2),
           _vm._v(" "),
-          _vm._m(8)
+          _vm._m(3)
         ]),
         _vm._v(" "),
-        _vm._m(9),
+        _vm._m(4),
         _vm._v(" "),
-        _vm._m(10)
+        _vm._m(5)
       ])
     ]
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sym-input-container" }, [
-      _c("input", {
-        staticClass: "sym-input",
-        attrs: { type: "text", "data-input": "last_name" }
-      }),
-      _vm._v(" "),
-      _c("label", [_vm._v("Last name"), _c("sup", [_vm._v("*")])])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sym-input-container" }, [
-      _c("input", {
-        staticClass: "sym-input",
-        attrs: { type: "email", "data-input": "email" }
-      }),
-      _vm._v(" "),
-      _c("label", [_vm._v("Email"), _c("sup", [_vm._v("*")])])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sym-input-container" }, [
-      _c("input", {
-        staticClass: "sym-input",
-        attrs: { type: "email", "data-input": "email_confirm" }
-      }),
-      _vm._v(" "),
-      _c("label", [_vm._v("Re-type email"), _c("sup", [_vm._v("*")])])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sym-input-container" }, [
-      _c("input", {
-        staticClass: "sym-input sym-input-empty",
-        attrs: { type: "password", "data-input": "password" }
-      }),
-      _vm._v(" "),
-      _c("label", [
-        _vm._v("Password"),
-        _c("sup", [_vm._v("*")]),
-        _vm._v(" (at least 8 characters)")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sym-input-container" }, [
-      _c("input", {
-        staticClass: "sym-input sym-input-empty",
-        attrs: { type: "password", "data-input": "password_confirm" }
-      }),
-      _vm._v(" "),
-      _c("label", [
-        _vm._v("Re-type password"),
-        _c("sup", [_vm._v("*")]),
-        _vm._v(" (at least 8 characters)")
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -35764,12 +35884,12 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4e2e0c5f", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-02aac99f", module.exports)
   }
 }
 
 /***/ }),
-/* 53 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -36050,166 +36170,15 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7ac9a204", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-64824784", module.exports)
   }
 }
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(59)
-}
-var normalizeComponent = __webpack_require__(4)
-/* script */
-var __vue_script__ = __webpack_require__(61)
-/* template */
-var __vue_template__ = __webpack_require__(62)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/SymInputText.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-10f836c7", Component.options)
-  } else {
-    hotAPI.reload("data-v-10f836c7", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
 
 /***/ }),
 /* 59 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(60);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("52b2a098", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-10f836c7\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymInputText.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-10f836c7\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymInputText.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 60 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.sym-input-container {\n  position: relative;\n  margin-top: 10px;\n}\n.sym-input-container input {\n  border: 1px solid #ccced5;\n  color: #525a64;\n  border-radius: 4px;\n  padding: 0 10px;\n  outline: none;\n  font-size: 14px;\n  height: 35px;\n}\n.sym-input-container input.sym-input-error {\n  border: 1px solid #fb7e69 !important;\n}\n.sym-input-container label {\n  position: absolute;\n  top: 8px;\n  left: 5px;\n  padding: 0 5px;\n  color: #ccced5;\n  cursor: text;\n  background-color: #fff;\n  -webkit-transition: all 300ms;\n          transition: all 300ms;\n}\n.sym-input-container input:not(.sym-input-empty) + label,\n.sym-input-container input:focus + label {\n  top: -10px;\n  font-family: 'Lato';\n  font-size: 12px;\n  color: #2196f3;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 61 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['value', 'label', 'isRequired'],
-	methods: {
-		handleInput: function handleInput(e) {
-			this.$emit('input', e.target.value);
-		}
-	}
-});
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "sym-input-container" }, [
-    _c("input", {
-      staticClass: "sym-input",
-      class: { "sym-input-empty": _vm.value === "" },
-      attrs: { type: "text", "data-input": "first_name" },
-      on: { input: _vm.handleInput }
-    }),
-    _vm._v(" "),
-    _c("label", [
-      _vm._v(_vm._s(_vm.label) + "\n        \t"),
-      _vm.isRequired ? _c("sup", [_vm._v("*")]) : _vm._e()
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-10f836c7", module.exports)
-  }
-}
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
