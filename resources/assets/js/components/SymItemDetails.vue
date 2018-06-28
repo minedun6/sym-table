@@ -81,32 +81,6 @@
 
 </template>
 
-<script>
-    import SymInputText from './SymInputText'
-    import SymInputRadioBox from './SymInputRadioBox'
-
-    export default {
-        props: ['selectedItem'],
-        data() {
-            return {
-                form: {
-                    first_name: '',
-                    last_name: '',
-                    email: '',
-                    email_confirm: '',
-                    password: '',
-                    password_confirm: '',
-                    user_type: 0
-                }
-            }
-        },
-        components: {
-            SymInputText,
-            SymInputRadioBox
-        }
-    }
-</script>
-
 <style lang="scss">
     /*-----------------------------------------------------------------------------*/
     /* -> Details <- */
@@ -632,3 +606,29 @@
     }
 
 </style>
+
+<script>
+    import SymInputText from './SymInputText'
+    import SymInputRadioBox from './SymInputRadioBox'
+
+    export default {
+        props: ['selectedItem'],
+        data() {
+            return {
+                form: {
+                    first_name: '',
+                    last_name: '',
+                    email: '',
+                    email_confirm: '',
+                    password: '',
+                    password_confirm: '',
+                    user_type: 0
+                }
+            }
+        },
+        components: {
+            SymInputText,
+            SymInputRadioBox
+        }
+    }
+</script>
