@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        <div class="sym-table-header flex">
+        <div class="sym-table-header flex w-full">
             <div v-for="(column, i) in columns"
                  class="sym-table-column cursor-pointer flex-1"
                  :class="[ {'sym-table-column-l' : i !== columns.length - 1}]"

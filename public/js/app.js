@@ -375,88 +375,6 @@ module.exports = {
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
-/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -684,7 +602,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 3 */
+/* 2 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -793,7 +711,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, exports) {
 
 var g;
@@ -817,6 +735,88 @@ try {
 // easier to handle this case. if(!global) { ...}
 
 module.exports = g;
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
 
 
 /***/ }),
@@ -12365,7 +12365,7 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(15).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(15).setImmediate))
 
 /***/ }),
 /* 15 */
@@ -12435,7 +12435,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
 /* 16 */
@@ -12628,7 +12628,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(6)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(6)))
 
 /***/ }),
 /* 17 */
@@ -12639,7 +12639,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(18)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(21)
 /* template */
@@ -12660,7 +12660,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/SymTable.vue"
+Component.options.__file = "resources\\assets\\js\\components\\SymTable.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -12669,9 +12669,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7ac9a204", Component.options)
+    hotAPI.createRecord("data-v-64824784", Component.options)
   } else {
-    hotAPI.reload("data-v-7ac9a204", Component.options)
+    hotAPI.reload("data-v-64824784", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -12692,13 +12692,13 @@ var content = __webpack_require__(19);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("2f3b8939", content, false, {});
+var update = __webpack_require__(1)("2254c152", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7ac9a204\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymTable.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7ac9a204\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymTable.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-64824784\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymTable.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-64824784\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymTable.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -12711,7 +12711,7 @@ if(false) {
 /* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(4)(false);
 // imports
 
 
@@ -30934,7 +30934,7 @@ module.exports = function spread(callback) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(42)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(42)(module)))
 
 /***/ }),
 /* 42 */
@@ -30973,7 +30973,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(44)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(46)
 /* template */
@@ -30983,7 +30983,7 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-4d3d6584"
+var __vue_scopeId__ = "data-v-11361f78"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -30994,7 +30994,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/FakeItemPlaceHolder.vue"
+Component.options.__file = "resources\\assets\\js\\components\\FakeItemPlaceHolder.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -31003,9 +31003,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4d3d6584", Component.options)
+    hotAPI.createRecord("data-v-11361f78", Component.options)
   } else {
-    hotAPI.reload("data-v-4d3d6584", Component.options)
+    hotAPI.reload("data-v-11361f78", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -31026,13 +31026,13 @@ var content = __webpack_require__(45);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("36e4d787", content, false, {});
+var update = __webpack_require__(1)("638d9ea4", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4d3d6584\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FakeItemPlaceHolder.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4d3d6584\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FakeItemPlaceHolder.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-11361f78\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FakeItemPlaceHolder.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-11361f78\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FakeItemPlaceHolder.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -31045,12 +31045,12 @@ if(false) {
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(4)(false);
 // imports
 
 
 // module
-exports.push([module.i, "/* fake */\n.sym-table-empty .sym-table-item-fake[data-v-4d3d6584] {\n  display: block;\n}\n.sym-table-item-fake.sym-table-item-selected[data-v-4d3d6584] {\n  /*display: block;*/\n}\n.sym-table-item-fake .sym-table-column > p[data-v-4d3d6584] {\n  display: block;\n  height: 10px;\n  width: 20%;\n  background: #f1f1f4;\n  border-radius: 4px;\n  margin: 30px auto !important;\n}\n.sym-table-item-fake .sym-table-column-l > p[data-v-4d3d6584] {\n  margin: 30px 10px !important;\n}\n.sym-table-item-fake .sym-table-column-r > p[data-v-4d3d6584] {\n  margin: 30px 10px !important;\n  float: right;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-avatar[data-v-4d3d6584] {\n  position: relative;\n  float: left;\n  margin: 10px 10px !important;\n  overflow: hidden;\n  width: 50px;\n  height: 50px;\n  border-radius: 25px;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-avatar[data-v-4d3d6584]::before {\n  content: '';\n  position: absolute;\n  top: 11px;\n  left: 15px;\n  width: 20px;\n  height: 20px;\n  border-radius: 10px;\n  background: #fff;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-avatar[data-v-4d3d6584]::after {\n  content: '';\n  position: absolute;\n  top: 27px;\n  left: 8px;\n  width: 35px;\n  height: 40px;\n  border-radius: 18px;\n  background: #fff;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-name[data-v-4d3d6584] {\n  width: 100px;\n  margin: 20px 0 0 60px !important;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-email[data-v-4d3d6584] {\n  width: 160px;\n  margin: 10px 0 0 60px !important;\n}\n@-webkit-keyframes placeHolderShimmer-data-v-4d3d6584 {\n0% {\n    background-position: -468px 0;\n}\n100% {\n    background-position: 468px 0;\n}\n}\n@keyframes placeHolderShimmer-data-v-4d3d6584 {\n0% {\n    background-position: -468px 0;\n}\n100% {\n    background-position: 468px 0;\n}\n}\n", ""]);
+exports.push([module.i, "/* fake */\n.sym-table-empty .sym-table-item-fake[data-v-11361f78] {\n  display: block;\n}\n.sym-table-item-fake.sym-table-item-selected[data-v-11361f78] {\n  /*display: block;*/\n}\n.sym-table-item-fake .sym-table-column > p[data-v-11361f78] {\n  display: block;\n  height: 10px;\n  width: 20%;\n  background: #f1f1f4;\n  border-radius: 4px;\n  margin: 30px auto !important;\n}\n.sym-table-item-fake .sym-table-column-l > p[data-v-11361f78] {\n  margin: 30px 10px !important;\n}\n.sym-table-item-fake .sym-table-column-r > p[data-v-11361f78] {\n  margin: 30px 10px !important;\n  float: right;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-avatar[data-v-11361f78] {\n  position: relative;\n  float: left;\n  margin: 10px 10px !important;\n  overflow: hidden;\n  width: 50px;\n  height: 50px;\n  border-radius: 25px;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-avatar[data-v-11361f78]::before {\n  content: '';\n  position: absolute;\n  top: 11px;\n  left: 15px;\n  width: 20px;\n  height: 20px;\n  border-radius: 10px;\n  background: #fff;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-avatar[data-v-11361f78]::after {\n  content: '';\n  position: absolute;\n  top: 27px;\n  left: 8px;\n  width: 35px;\n  height: 40px;\n  border-radius: 18px;\n  background: #fff;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-name[data-v-11361f78] {\n  width: 100px;\n  margin: 20px 0 0 60px !important;\n}\n.sym-table-item-fake .sym-table-column > p.sym-table-item-email[data-v-11361f78] {\n  width: 160px;\n  margin: 10px 0 0 60px !important;\n}\n@-webkit-keyframes placeHolderShimmer-data-v-11361f78 {\n0% {\n    background-position: -468px 0;\n}\n100% {\n    background-position: 468px 0;\n}\n}\n@keyframes placeHolderShimmer-data-v-11361f78 {\n0% {\n    background-position: -468px 0;\n}\n100% {\n    background-position: 468px 0;\n}\n}\n", ""]);
 
 // exports
 
@@ -31130,7 +31130,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4d3d6584", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-11361f78", module.exports)
   }
 }
 
@@ -31143,7 +31143,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(49)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(51)
 /* template */
@@ -31164,7 +31164,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/SymItemDetails.vue"
+Component.options.__file = "resources\\assets\\js\\components\\SymItemDetails.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -31173,9 +31173,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4e2e0c5f", Component.options)
+    hotAPI.createRecord("data-v-02aac99f", Component.options)
   } else {
-    hotAPI.reload("data-v-4e2e0c5f", Component.options)
+    hotAPI.reload("data-v-02aac99f", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -31196,13 +31196,13 @@ var content = __webpack_require__(50);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("9d0601b0", content, false, {});
+var update = __webpack_require__(1)("3519cfaa", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4e2e0c5f\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymItemDetails.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4e2e0c5f\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymItemDetails.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-02aac99f\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymItemDetails.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-02aac99f\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymItemDetails.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -31215,7 +31215,7 @@ if(false) {
 /* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(4)(false);
 // imports
 
 
@@ -31353,7 +31353,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(53)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(55)
 /* template */
@@ -31374,7 +31374,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/SymInputText.vue"
+Component.options.__file = "resources\\assets\\js\\components\\SymInputText.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -31383,9 +31383,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-10f836c7", Component.options)
+    hotAPI.createRecord("data-v-5c034407", Component.options)
   } else {
-    hotAPI.reload("data-v-10f836c7", Component.options)
+    hotAPI.reload("data-v-5c034407", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -31406,13 +31406,13 @@ var content = __webpack_require__(54);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("52b2a098", content, false, {});
+var update = __webpack_require__(1)("10f39de8", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-10f836c7\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymInputText.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-10f836c7\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymInputText.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5c034407\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymInputText.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5c034407\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymInputText.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -31425,7 +31425,7 @@ if(false) {
 /* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(4)(false);
 // imports
 
 
@@ -31488,7 +31488,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-10f836c7", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-5c034407", module.exports)
   }
 }
 
@@ -31501,7 +31501,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(58)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(60)
 /* template */
@@ -31522,7 +31522,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/SymInputRadioBox.vue"
+Component.options.__file = "resources\\assets\\js\\components\\SymInputRadioBox.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -31531,9 +31531,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-cce8fa2c", Component.options)
+    hotAPI.createRecord("data-v-21cdf02a", Component.options)
   } else {
-    hotAPI.reload("data-v-cce8fa2c", Component.options)
+    hotAPI.reload("data-v-21cdf02a", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -31554,13 +31554,13 @@ var content = __webpack_require__(59);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("7c41b007", content, false, {});
+var update = __webpack_require__(1)("7bb8fe0d", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-cce8fa2c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymInputRadioBox.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-cce8fa2c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymInputRadioBox.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-21cdf02a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymInputRadioBox.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-21cdf02a\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SymInputRadioBox.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -31573,7 +31573,7 @@ if(false) {
 /* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
+exports = module.exports = __webpack_require__(4)(false);
 // imports
 
 
@@ -31738,7 +31738,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-cce8fa2c", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-21cdf02a", module.exports)
   }
 }
 
@@ -31996,7 +31996,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4e2e0c5f", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-02aac99f", module.exports)
   }
 }
 
@@ -32061,7 +32061,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "sym-table-header flex" },
+        { staticClass: "sym-table-header flex w-full" },
         _vm._l(_vm.columns, function(column, i) {
           return _c(
             "div",
@@ -32284,7 +32284,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7ac9a204", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-64824784", module.exports)
   }
 }
 
